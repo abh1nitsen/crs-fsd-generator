@@ -1,0 +1,147 @@
+{
+  "country": "Australia",
+  "code": "AU",
+  "authority": "Australian Taxation Office (ATO)",
+  "authority_acronym": "ATO",
+  "legal_basis": "Taxation Administration Act 1953 (TAA) Schedule 1, Div 396; Income Tax Assessment Act 1997; Common Reporting Standard (CRS) Regulations 2017",
+  "crs_status": "Committed and active - first exchange 2018",
+  "reporting_deadline": "31 July following the 31 December reporting year-end",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "portal_name": "ATO Online Services for Business",
+  "portal_url": "https://www.ato.gov.au/businesses-and-organisations/business-tax-obligations/foreign-account-tax-compliance-act/lodging-your-fatca-and-crs-report",
+  "submission_method": "ATO Online Services; also ATO Small Reporter Tool for FIs with few reportable accounts",
+  "xml_schema": "OECD CRS XML Schema v2.0",
+  "nil_report_required": "Yes - CRS703 nil report required if Reporting FI has zero reportable accounts",
+  "data_retention_years": "12 months post-submission (ATO requirement); underlying records 5 years minimum",
+  "msg_ref_id_format": "AU[ReportingYear][FI_ABN_or_GIIN][SequenceNumber] e.g. AU2024[ABN]001",
+  "doc_ref_id_format": "AU[ReportingYear]AU[ABN_or_GIIN_or_TFN][UniqueRef] - all uppercase, no spaces or special characters",
+  "character_encoding": "UTF-8",
+  "local_fi_scope": [
+    "Authorised Deposit-taking Institutions (ADIs): banks, building societies, credit unions",
+    "Life insurance companies offering investment-linked products",
+    "Managed investment schemes (MIS) / custodial services",
+    "Superannuation funds (most are Non-Reporting; check ATO list)",
+    "Trustee-documented trusts where trustee is Reporting FI"
+  ],
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Broad participation retirement fund accounts",
+    "Narrow participation retirement fund accounts",
+    "Exempt collective investment vehicles",
+    "Qualified credit card issuer accounts (where applicable)",
+    "Superannuation accounts of registered superannuation entities (specifically exempt)",
+    "First Home Saver Accounts (where applicable)"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000 aggregate balance",
+    "pre_existing_entity_review_trigger": "USD 250,000 aggregate balance",
+    "new_accounts": "No financial threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "submission_deadline": "31 July",
+    "new_account_dd": "At or before account opening"
+  },
+  "local_specific_rules": [
+    "TRUST REPORTING: A trust that is an Investment Entity must be reported. The Trustee is the Reporting FI. Trustee must obtain self-cert from trust beneficial owners.",
+    "NIL REPORTS: Mandatory using CRS703 MessageTypeIndic. Failure to lodge nil report is a compliance failure.",
+    "ABN FORMAT IN DocRefId: Use the 11-digit ABN (no spaces) as the FI identifier in DocRefId where no GIIN exists.",
+    "SMALL REPORTER TOOL: ATO provides an Excel-based tool for FIs with fewer reportable accounts who cannot generate XML. Converts to XML for submission.",
+    "AGGREGATION RULE: All accounts held by same account holder at same FI must be aggregated for threshold testing, including accounts held by related entities if FI systems can identify them.",
+    "CHANGE OF CIRCUMSTANCES: FI must update account classification within 90 days of becoming aware of a change; may not close as non-reportable until verified.",
+    "DATA RETENTION: ATO requires records to be kept for at least 12 months after the CRS report is submitted, in addition to general 5-year business record requirement."
+  ],
+  "rejection_error_codes": [
+    {
+      "code": "CMN.ATO.FCTB.EM0001",
+      "desc": "DocRefId already exists - duplicate submission",
+      "resolution": "Check if previously submitted; use OECD2 to correct"
+    },
+    {
+      "code": "CMN.ATO.FCTB.EM0002",
+      "desc": "CorrDocRefId not found - original DocRefId does not exist",
+      "resolution": "Verify original DocRefId was successfully accepted"
+    },
+    {
+      "code": "CMN.ATO.FCTB.EM0003",
+      "desc": "TIN format invalid for jurisdiction",
+      "resolution": "Validate TIN format per OECD TIN guidance; use unknown if not held"
+    },
+    {
+      "code": "CMN.ATO.FCTB.EM0004",
+      "desc": "Account balance currency code invalid (ISO 4217)",
+      "resolution": "Use standard 3-letter ISO currency code"
+    },
+    {
+      "code": "CMN.ATO.FCTB.EM0005",
+      "desc": "ReportingFI TIN missing or invalid",
+      "resolution": "Ensure FI ABN or GIIN is correctly formatted in ReportingFI element"
+    },
+    {
+      "code": "CMN.ATO.FCTB.EM0006",
+      "desc": "AccountNumber missing",
+      "resolution": "Provide account number; use IBAN or internal reference if no formal account number"
+    },
+    {
+      "code": "CMN.ATO.FCTB.EM0007",
+      "desc": "BirthDate format error",
+      "resolution": "Use ISO 8601 YYYY-MM-DD format; use YYYY-01-01 if only year known"
+    },
+    {
+      "code": "CMN.ATO.FCTB.EM0008",
+      "desc": "Country code invalid",
+      "resolution": "Use ISO 3166-1 alpha-2 code; verify reportable jurisdiction list"
+    },
+    {
+      "code": "CMN.ATO.FCTB.EM0009",
+      "desc": "Schema validation failure - missing mandatory element",
+      "resolution": "Run XML against OECD CRS XSD before submission"
+    }
+  ],
+  "penalties": {
+    "failure_to_report": "Penalty under TAA s.288-25: up to AUD 55,000 per failure for entities",
+    "false_or_misleading_statement": "TAA s.284-75: up to 75% of tax shortfall",
+    "late_lodgment": "ATO may issue penalty notice; first offence usually remitted on request"
+  },
+  "contact": {
+    "email": "CRS@ato.gov.au",
+    "phone": "13 28 66 (business enquiries)",
+    "website": "https://www.ato.gov.au/businesses-and-organisations/business-tax-obligations/common-reporting-standard"
+  },
+  "fatca": {
+    "iga_type": "Model 1A",
+    "iga_signed": "28 April 2014",
+    "iga_effective": "1 July 2014",
+    "portal": "ATO Online Services (same portal as CRS)",
+    "giin_required": true,
+    "key_rules": [
+      "Australia is Model 1A: Australian FIs report FATCA data to ATO, which passes to IRS",
+      "US persons identified by 7 indicia (US citizenship/residence, US birthplace, US address, US phone, US standing instruction, US power of attorney, US in-care-of address)",
+      "Recalcitrant account: if no self-cert from US person, report as recalcitrant with balance only",
+      "Aggregation same as CRS for threshold testing"
+    ]
+  },
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://www.ato.gov.au/businesses-and-organisations/business-tax-obligations/common-reporting-standard",
+        "fetched_at": "2026-06-19",
+        "notes": "ATO CRS main page"
+      },
+      {
+        "url": "https://www.ato.gov.au/businesses-and-organisations/business-tax-obligations/common-reporting-standard/reporting-requirements-for-your-crs-report",
+        "fetched_at": "2026-06-19",
+        "notes": "ATO CRS reporting requirements"
+      }
+    ],
+    "last_updated": "2026-06-19",
+    "confidence": "High",
+    "gaps": [
+      "Exact rejection error code numbers should be verified against current ATO Online Services documentation",
+      "Small Reporter Tool version/availability should be verified at time of reporting"
+    ]
+  }
+}

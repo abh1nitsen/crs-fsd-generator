@@ -1,0 +1,44 @@
+[
+  {
+    "label": "Depository Institution",
+    "code": "DEPOSITORY",
+    "description": "You accept deposits from customers.",
+    "examples": "Banks, credit unions, building societies, savings institutions",
+    "key_obligations": "Report account balances and gross interest paid on accounts held by foreign tax residents."
+  },
+  {
+    "label": "Custodial Institution",
+    "code": "CUSTODIAL",
+    "description": "You hold financial assets on behalf of others as a substantial part of your business.",
+    "examples": "Brokers, custodians, prime brokers, nominee account providers",
+    "key_obligations": "Report balances, dividends, interest, and gross proceeds from asset sales."
+  },
+  {
+    "label": "Investment Entity (Type A) - Managed by another FI",
+    "code": "INVESTMENT_A",
+    "description": "Your gross income is primarily from financial assets AND you are professionally managed by another financial institution.",
+    "examples": "Managed funds, SPVs, unit trusts managed by a regulated fund manager",
+    "key_obligations": "Treated as a Reporting FI if in a participating jurisdiction, or as a Passive NFFE if not. Report investor equity and debt interests."
+  },
+  {
+    "label": "Investment Entity (Type B) - Not managed by another FI",
+    "code": "INVESTMENT_B",
+    "description": "A trust or investment vehicle whose gross income is primarily from financial assets, but is NOT managed by another financial institution.",
+    "examples": "Family trusts, self-managed investment vehicles, certain private equity structures",
+    "key_obligations": "Treated as a Passive NFFE. Controlling persons (settlors, trustees, beneficiaries with >25% interest) must be identified and reported."
+  },
+  {
+    "label": "Specified Insurance Company",
+    "code": "INSURANCE",
+    "description": "You issue cash value life insurance contracts or annuity contracts.",
+    "examples": "Life insurers, annuity providers, bancassurance arms of banks",
+    "key_obligations": "Report cash surrender value or amount paid on insurance/annuity contracts held by foreign tax residents."
+  },
+  {
+    "label": "Non-Reporting Financial Institution",
+    "code": "NON_REPORTING",
+    "description": "Your institution is exempt from CRS reporting obligations under the standard.",
+    "examples": "Governmental entities, international organisations, central banks, certain regulated pension funds, exempt collective investment vehicles",
+    "key_obligations": "Limited or no reporting obligations. Due diligence may still be required to confirm exempt status. Consult local guidance."
+  }
+]

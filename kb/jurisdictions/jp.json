@@ -1,0 +1,138 @@
+{
+  "country": "Japan",
+  "code": "JP",
+  "authority": "National Tax Agency (NTA) / Kokuzeicho",
+  "authority_acronym": "NTA",
+  "legal_basis": "Act on Special Provisions Concerning the Taxation and Others for Handling Cross-Border Tax Avoidance (Heisei 27, Law No. 61 of 2015); amended by Tax Reform Law Reiwa 6 (2024); related Cabinet and ministerial orders",
+  "crs_status": "Committed and active - collection from FY2017; first exchange 2018. Major reform effective 2025/2027.",
+  "reporting_deadline": "30 April following the 31 December reporting year-end",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "portal_name": "e-Tax (NTA electronic filing system)",
+  "portal_url": "https://www.e-tax.nta.go.jp/",
+  "submission_method": "e-Tax system; XML upload. Electronic submission mandatory for FIs above a certain account count; smaller FIs may use paper forms.",
+  "xml_schema": "OECD CRS XML Schema v2.0; NTA publishes Japanese-specific technical specifications",
+  "nil_report_required": "Yes - nil report required per NTA guidance [INFERRED - standard NTA practice; verify]",
+  "data_retention_years": "7 years (Japanese National Tax Law - Kokuzei Tsuho Ho)",
+  "msg_ref_id_format": "JP + FI Corporate Number (13-digit Hojin Bango) + year + sequence",
+  "doc_ref_id_format": "JP + year + FI Corporate Number + unique account reference; per NTA technical spec",
+  "character_encoding": "UTF-8; Japanese characters must be romanised to Latin (Hepburn romanisation) for XML",
+  "local_fi_scope": [
+    "Banks (ginko) licensed under Banking Act (Ginko Ho) supervised by FSA",
+    "Securities companies (shoken gaisha) licensed under Financial Instruments and Exchange Act (FIEA) supervised by FSA",
+    "Life insurance companies (seimei hoken gaisha) with investment-linked products",
+    "Investment trusts (toshi shintaku) and investment corporations (toshi hojin) under Investment Trust Act",
+    "Japan Post Bank and Japan Post Insurance (specific exemptions apply - verify with NTA)",
+    "Foreign bank branches and foreign securities firm branches in Japan"
+  ],
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Broad participation retirement fund accounts",
+    "Narrow participation retirement fund accounts",
+    "Exempt collective investment vehicles",
+    "Qualified credit card issuer accounts (where applicable)",
+    "iDeCo (individual defined contribution pension) accounts - designated as non-reporting",
+    "NISA (Nippon Individual Savings Account) - designated as non-reporting exempt account",
+    "Japan Post Bank ordinary savings (futsu chokin) - verify exclusion status with NTA"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000 aggregate balance",
+    "pre_existing_entity_review_trigger": "USD 250,000 aggregate balance",
+    "new_accounts": "No financial threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "submission_deadline": "30 April",
+    "new_account_dd_from": "1 January 2017 (Heisei 29)",
+    "reporting_from": "FY2017 (first reports due April 2018)",
+    "reform_reiwa6_effective": "Reiwa 7 (2025) for new system; Reiwa 9 (2027) for full new system implementation"
+  },
+  "local_specific_rules": [
+    "TAX REFORM REIWA 6 (2024): Japan enacted major CRS reform in FY2024. A new reporting system is being phased in: the Reiwa 7 (2025) system covers Reiwa 6 (2024) data; the Reiwa 9 (2027) new system applies from 2027 onwards for data from Reiwa 8 (2026). FIs must track which system version applies to each reporting year.",
+    "CORPORATE NUMBER (HOJIN BANGO): Japan uses the 13-digit Corporate Number (Hojin Bango) as the primary FI identifier. This is issued by the National Tax Agency and is publicly searchable.",
+    "JAPANESE TO LATIN ROMANISATION: All Japanese names must be romanised using Hepburn romanisation for XML submission. FIs should implement a consistent romanisation system and document it.",
+    "FSA SUPERVISION: The Financial Services Agency (FSA) supervises Japanese banks, securities firms, and insurers. NTA supervises CRS data reporting. FSA may inspect CRS procedures as part of AML reviews.",
+    "NISA EXCLUSION: NISA (Nippon Individual Savings Accounts) and the new Growth Investment NISA (introduced 2024) are designated as exempt accounts under Japanese CRS law. Do not report NISA accounts even if holder is foreign tax resident.",
+    "iDeCo EXCLUSION: Individual Defined Contribution pension accounts (iDeCo) are Non-Reporting FI accounts. Verify current NTA guidance for each pension product type.",
+    "TAIWAN SPECIAL ARRANGEMENT: Japan has a separate bilateral arrangement for exchange of CRS-equivalent information with Taiwan (through designated organisations, not government-to-government). Japanese FIs with Taiwan-resident account holders should review the NTA Taiwan guidance.",
+    "E-TAX SYSTEM REGISTRATION: FIs must register in e-Tax before first submission. The registration process uses the FI's Corporate Number. Agent registration (dairi ninsho) is also available for tax agents.",
+    "ENGLISH GUIDANCE: NTA publishes English summaries of key CRS documents (available as PDFs from the NTA CRS Corner website). While helpful, the Japanese versions are legally binding.",
+    "DEADLINE ENFORCEMENT: Japan's April 30 deadline is strict. No standard extension mechanism exists; FIs with issues should contact NTA International Taxation Division proactively."
+  ],
+  "rejection_error_codes": [
+    {
+      "code": "NTA-CRS-001",
+      "desc": "Hojin Bango (Corporate Number) not registered for CRS",
+      "resolution": "Register FI in e-Tax before submission; confirm Corporate Number accuracy"
+    },
+    {
+      "code": "NTA-CRS-002",
+      "desc": "XML schema validation failure",
+      "resolution": "Validate against NTA-published XSD; check NTA annual technical specifications"
+    },
+    {
+      "code": "NTA-CRS-003",
+      "desc": "DocRefId already submitted",
+      "resolution": "Use OECD2 with CorrDocRefId"
+    },
+    {
+      "code": "NTA-CRS-004",
+      "desc": "Reporting year mismatch",
+      "resolution": "Confirm ReportingPeriod element matches registered year; note Reiwa/Western year conversion"
+    },
+    {
+      "code": "NTA-CRS-005",
+      "desc": "Non-Latin characters in name fields",
+      "resolution": "Romanise all Japanese/Chinese names to Hepburn Latin; use transliteration table"
+    }
+  ],
+  "penalties": {
+    "failure_to_report": "Administrative fine under the Act; penalty per account not reported",
+    "false_report": "Criminal penalty under Japanese National Tax Law; fine and/or imprisonment possible",
+    "failure_to_obtain_self_cert": "Administrative penalty; account must be flagged as undocumented"
+  },
+  "contact": {
+    "division": "National Tax Agency, International Taxation Division (Kokuzai Sozei Ka)",
+    "address": "3-1-1 Kasumigaseki, Chiyoda-ku, Tokyo 100-8978",
+    "phone": "+81 3-3581-4161 ext. 3145, 3367, 3837",
+    "website": "https://www.nta.go.jp/taxes/shiraberu/kokusai/crs/index.htm",
+    "english_resources": "https://www.nta.go.jp/taxes/shiraberu/kokusai/crs/summary.htm (English PDFs available)"
+  },
+  "fatca": {
+    "iga_type": "Model 1A",
+    "iga_signed": "11 June 2013",
+    "iga_effective": "19 July 2013",
+    "portal": "e-Tax (same system as CRS; separate FATCA filing)",
+    "key_rules": [
+      "Japan Model 1A: Japanese FIs report FATCA data to NTA, which passes to IRS.",
+      "Japanese FIs do not need individual IRS FATCA registration; covered by IGA.",
+      "US indicia: standard 7 indicia. Japanese FIs must identify US persons in their account base.",
+      "FATCA reporting deadline aligns with CRS: 30 April.",
+      "Japan has strong privacy laws; consent-based approach to self-cert for FATCA indicia rebuttal."
+    ]
+  },
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://www.nta.go.jp/taxes/shiraberu/kokusai/crs/index.htm",
+        "fetched_at": "2026-06-19",
+        "notes": "NTA CRS Corner main page - fetched (Shift-JIS encoding; content partially decoded)"
+      },
+      {
+        "url": "https://www.nta.go.jp/taxes/shiraberu/kokusai/crs/summary.htm",
+        "fetched_at": "2026-06-19",
+        "notes": "NTA CRS summary page - fetched; English PDF links confirmed"
+      }
+    ],
+    "last_updated": "2026-06-19",
+    "confidence": "Medium",
+    "gaps": [
+      "Reporting deadline (30 April) confirmed from NTA page context but should be verified against English NTA PDF",
+      "NTA rejection error codes are INFERRED; verify against NTA e-Tax technical manual",
+      "Reiwa 6/7/9 reform details should be confirmed against NTA English summary PDF (available at NTA website)",
+      "Taiwan special arrangement details should be reviewed separately"
+    ]
+  }
+}

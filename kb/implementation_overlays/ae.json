@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "jurisdiction": "United Arab Emirates",
+  "code": "AE",
+  "evidence_note": "Implementation overlay uses curated KB signals plus conservative TIN format hints. Validate exact local treatment before build lock.",
+  "tin": {
+    "local_label": "Tax Registration Number / Emirates ID where applicable",
+    "format": "^\\d{15}$",
+    "regex": "^\\d{15}$",
+    "valid_examples": [
+      "100123456700003"
+    ],
+    "issuing_authority": "UAE Ministry of Finance (MoF) - central coordinating authority",
+    "applicability": "Account holder or controlling person TIN must be interpreted by that person’s tax residence jurisdiction; this local overlay applies when the tax residence is United Arab Emirates.",
+    "mandatory_state": "Conditional - required when CRS rules and the account holder tax residence require a TIN; otherwise capture reason for absence where permitted.",
+    "default_allowed": false,
+    "permitted_missing_reason_codes": [],
+    "missing_data_action": "Open TIN remediation/outreach; do not fabricate placeholder values; capture reasonable-efforts evidence and apply only verified local missing-TIN treatment.",
+    "validation_rule": "Configure regex and any checksum only after Compliance confirms the official TIN guidance for the selected reporting year.",
+    "evidence_status": "Needs verification",
+    "source_url": "https://www.oecd.org/en/networks/global-forum-tax-transparency/resources/aeoi-implementation-portal/tax-identification-numbers.html",
+    "verification_task": "Confirm accepted individual/entity TIN formats, mandatory/conditional treatment, and permitted missing-TIN reason codes before production validation."
+  },
+  "nil_reporting": {
+    "state": "Yes - required per UAE CRS Circular on Reporting (June 2026) [INFERRED - verify in circular text]",
+    "process": "Configure zero-reportable-account workflow according to the verified local rule.",
+    "deadline": "30 June following the 31 December reporting year-end [INFERRED - portal guidance says 'stipulated domestic reporting deadline'; verify via MoF portal announcement]",
+    "zero_account_treatment": "If no reportable accounts exist, do not assume no action; execute the jurisdiction-specific nil/no-reportable workflow only after verification.",
+    "evidence_status": "Needs verification",
+    "source_url": "https://fatcacrs.mof.gov.ae",
+    "verification_task": "Confirm whether a nil declaration, zero-record file, portal attestation or no filing is required for the selected reporting year."
+  },
+  "self_certification": {
+    "validity_rule": "Self-certification must be complete, signed/accepted and reasonable against other KYC information; it should be refreshed or cured on change in circumstances or unreliability. Do not apply a fixed refresh cycle unless verified locally.",
+    "change_in_circumstances_trigger": "Address, tax residence, entity classification, controlling-person, documentation or indicia changes that make the existing self-certification unreliable.",
+    "unreliable_conditions": [
+      "missing signature/acceptance",
+      "missing tax residence",
+      "contradictory KYC indicia",
+      "stale after change in circumstances",
+      "unsupported entity classification"
+    ],
+    "refresh_requirement": "Needs verification - confirm any jurisdiction-specific cure or refresh timing before configuring workflow SLAs.",
+    "missing_action": "Trigger self-certification remediation, document outreach and reasonableness review, and block unsupported reportability decisions until resolved or approved.",
+    "evidence_status": "Needs verification",
+    "source_url": "https://fatcacrs.mof.gov.ae",
+    "verification_task": "Confirm local self-certification cure, reliability and change-in-circumstances handling before setting operational SLA or blocking logic."
+  },
+  "material_differences": [
+    {
+      "Area": "TIN validation and missing-TIN treatment",
+      "What Changes": "Local TIN label/format and permitted missing-TIN treatment must be configured for United Arab Emirates.",
+      "Implementation Impact": "TIN validation, remediation queues and reason-code handling must be jurisdiction-configurable.",
+      "Verification Task": "Confirm local TIN format, missing-TIN treatment and accepted reason codes before UAT.",
+      "Evidence Status": "Needs verification"
+    },
+    {
+      "Area": "Nil-reporting workflow",
+      "What Changes": "Yes - required per UAE CRS Circular on Reporting (June 2026) [INFERRED - verify in circular text]",
+      "Implementation Impact": "Zero-reportable-account processing must not be assumed from global CRS baseline.",
+      "Verification Task": "Confirm nil/no-reportable filing treatment for reporting year before production calendar setup.",
+      "Evidence Status": "Needs verification"
+    },
+    {
+      "Area": "Submission route and schema",
+      "What Changes": "UAE FATCA/CRS System (MoF) / OECD CRS XML Schema v2.0; MoF technical guidance in User Guide v2.4 (June 2026)",
+      "Implementation Impact": "Portal, schema version, acknowledgements, rejection handling and correction workflow must be configurable by jurisdiction.",
+      "Verification Task": "Confirm current portal, schema/version and rejection process before end-to-end UAT.",
+      "Evidence Status": "Verified"
+    },
+    {
+      "Area": "Self-certification cure and reliability",
+      "What Changes": "No unsupported fixed refresh cycle is assumed.",
+      "Implementation Impact": "Workflow SLAs, blocking rules and reasonableness checks must be configured only after local policy/legal confirmation.",
+      "Verification Task": "Confirm cure window, change-in-circumstances process and stale/unreliable treatment.",
+      "Evidence Status": "Needs verification"
+    }
+  ],
+  "verification_tasks": []
+}

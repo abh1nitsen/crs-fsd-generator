@@ -1,0 +1,117 @@
+{
+  "country": "Luxembourg",
+  "code": "LU",
+  "authority": "Administration des contributions directes (ACD)",
+  "authority_acronym": "ACD",
+  "legal_basis": "Loi du 18 decembre 2015 relative a la NCD (Norme commune de declaration / CRS); transposant la Directive EU 2014/107/UE (DAC2)",
+  "crs_status": "Committed and active - first exchange 2017 (early adopter). Key fund domicile.",
+  "reporting_deadline": "30 June following the 31 December reporting year-end",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "portal_name": "FUNDSQUARE (primary) or WORLDLINE (alternative accredited intermediary)",
+  "portal_url": "https://www.fundsquare.net (FUNDSQUARE) | https://www.worldline.com/lu (WORLDLINE)",
+  "submission_method": "MANDATORY via accredited intermediary only: FUNDSQUARE (Luxembourg Stock Exchange subsidiary) or WORLDLINE. Direct submission to ACD is NOT available. FIs must contract with one of these intermediaries.",
+  "xml_schema": "OECD CRS XML Schema v2.0; intermediary platforms apply additional validation",
+  "nil_report_required": "Yes - mandatory from 2021 onwards. Nil CRS report must be submitted even if zero reportable accounts.",
+  "data_retention_years": "10 years (Luxembourg fiscal law; ACD guidance)",
+  "msg_ref_id_format": "LU + FI registration number (RCS or CSSF number) + year + sequence",
+  "doc_ref_id_format": "LU + year + FI registration number + unique account reference",
+  "character_encoding": "UTF-8",
+  "local_fi_scope": [
+    "Banques (credit institutions) supervised by CSSF",
+    "Fonds d'investissement (investment funds): UCITS, AIF - Luxembourg is major fund domicile",
+    "Societes de gestion (management companies) of UCITS and AIFs",
+    "Compagnies d'assurance-vie (life insurance companies)",
+    "Fiducies and trusts registered in Luxembourg",
+    "Luxembourg-domiciled special purpose vehicles (SPVs) classified as Investment Entities"
+  ],
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Broad participation retirement fund accounts",
+    "Narrow participation retirement fund accounts",
+    "Exempt collective investment vehicles",
+    "Qualified credit card issuer accounts (where applicable)",
+    "Pension savings contracts (regime complementaire de retraite) - specifically excluded under Luxembourg law"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000 aggregate balance",
+    "pre_existing_entity_review_trigger": "USD 250,000 aggregate balance",
+    "new_accounts": "No financial threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "submission_deadline": "30 June",
+    "nil_report_required_from": "2021 (for reporting year 2020 onwards)"
+  },
+  "local_specific_rules": [
+    "MANDATORY INTERMEDIARY SUBMISSION: Luxembourg does not operate a direct FI-to-ACD portal. ALL submissions must go through FUNDSQUARE or WORLDLINE. FIs must have a service agreement with one of these platforms. This is a Luxembourg-specific structural requirement with no OECD equivalent.",
+    "FUNDSQUARE DOMINANCE: The vast majority of Luxembourg fund industry CRS submissions go through FUNDSQUARE, a subsidiary of the Luxembourg Stock Exchange (Bourse de Luxembourg). WORLDLINE is the alternative for non-fund FIs.",
+    "NIL REPORTS MANDATORY: From 2021, Luxembourg requires a nil CRS report to be submitted for every year in which a Reporting FI has zero reportable accounts. Earlier years (pre-2021) did not require nil reports.",
+    "FUND INDUSTRY SCALE: Luxembourg is the second-largest fund domicile globally. A single fund manager may have hundreds of sub-funds each classified as separate Reporting FIs. FI registration and intermediary coordination is therefore complex.",
+    "EU DAC2 OVERLAY: As an EU member, Luxembourg applies DAC2 for exchanges with EU partners. MCAA applies for non-EU partners.",
+    "NCD TERMINOLOGY: Luxembourg uses the French term 'Norme commune de declaration (NCD)' as the local equivalent of CRS. All local regulations and ACD guidance use this term.",
+    "CSSF SUPERVISION: The Commission de Surveillance du Secteur Financier (CSSF) is the prudential regulator for Luxembourg banks and funds. Compliance with NCD/CRS is supervised by both CSSF and ACD.",
+    "SUB-FUND REPORTING: Under Luxembourg UCITS/AIF law, each sub-fund of an umbrella fund is treated as a separate legal entity for CRS purposes and must be registered and reported separately.",
+    "FATCA COORDINATION: Luxembourg's FATCA reporting also flows through the intermediary (FUNDSQUARE/WORLDLINE) to ACD, which passes to IRS under the Luxembourg-US Model 1 IGA."
+  ],
+  "rejection_error_codes": [
+    {
+      "code": "FUNDSQUARE-ERR-001",
+      "desc": "XML schema validation failure",
+      "resolution": "Validate against OECD CRS XSD; check FUNDSQUARE technical specifications"
+    },
+    {
+      "code": "FUNDSQUARE-ERR-002",
+      "desc": "FI not registered with ACD as Reporting FI",
+      "resolution": "Register FI with ACD before first submission via FUNDSQUARE portal"
+    },
+    {
+      "code": "FUNDSQUARE-ERR-003",
+      "desc": "DocRefId already exists",
+      "resolution": "Use OECD2 correction record with CorrDocRefId"
+    },
+    {
+      "code": "ACD-ERR-001",
+      "desc": "Late submission (after 30 June)",
+      "resolution": "Contact ACD for extension; document cause for delay"
+    }
+  ],
+  "penalties": {
+    "failure_to_report": "Under Luxembourg NCD law: fines up to EUR 250,000 per year for non-compliance",
+    "late_submission": "ACD may impose administrative penalty; first occurrence typically managed with written warning",
+    "failure_to_register": "Regulatory action by ACD and CSSF"
+  },
+  "contact": {
+    "website": "https://impotsdirects.public.lu/fr/echanges_electroniques/CRS_NCD.html",
+    "intermediary_fundsquare": "https://www.fundsquare.net",
+    "cssf": "https://www.cssf.lu"
+  },
+  "fatca": {
+    "iga_type": "Model 1A",
+    "iga_signed": "28 March 2014",
+    "iga_effective": "1 July 2014",
+    "portal": "Via FUNDSQUARE or WORLDLINE (same as CRS)",
+    "key_rules": [
+      "Luxembourg Model 1A: Luxembourg FIs report FATCA data to ACD via FUNDSQUARE/WORLDLINE; ACD passes to IRS.",
+      "US indicia: standard 7 indicia. Luxembourg funds must apply indicia review to all account holders.",
+      "FATCA submission also mandatory via accredited intermediary."
+    ]
+  },
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://impotsdirects.public.lu/fr/echanges_electroniques/CRS_NCD.html",
+        "fetched_at": "2026-06-19",
+        "notes": "ACD CRS/NCD page - fetched and verified"
+      }
+    ],
+    "last_updated": "2026-06-19",
+    "confidence": "High",
+    "gaps": [
+      "FUNDSQUARE technical specification version should be confirmed",
+      "ACD penalty amounts should be verified against current Luxembourg NCD law text"
+    ]
+  }
+}

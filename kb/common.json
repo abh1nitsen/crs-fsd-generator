@@ -1,0 +1,164 @@
+{
+  "_description": "OECD CRS standard baseline rules. All jurisdiction files override these where local rules differ.",
+  "standard": "Common Reporting Standard (CRS)",
+  "issuing_body": "OECD",
+  "xml_schema_version": "OECD CRS XML Schema v2.0 (2019)",
+  "xml_schema_url": "https://www.oecd.org/tax/exchange-of-tax-information/schema-for-automatic-exchange-of-financial-account-information.htm",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "character_encoding": "UTF-8 (unless jurisdiction specifies otherwise)",
+  "thresholds": {
+    "pre_existing_individual_lower_value_ceiling": "USD 1,000,000 aggregate balance",
+    "pre_existing_individual_high_value": "Exceeds USD 1,000,000 aggregate balance - triggers enhanced review",
+    "pre_existing_entity_review_trigger": "Exceeds USD 250,000 aggregate balance - triggers entity DD review",
+    "new_accounts": "No financial threshold - ALL new accounts undergo self-cert DD at opening",
+    "de_minimis_individual_pre_existing": "USD 50,000 (optional; jurisdictions may opt out)",
+    "de_minimis_cash_value_insurance": "USD 250,000 (optional)"
+  },
+  "due_diligence": {
+    "new_individual": {
+      "procedure": "Self-certification at account opening. Collect: full legal name, address, date of birth, jurisdiction(s) of tax residence, TIN(s) per jurisdiction.",
+      "timetable": "At or before account opening; must be obtained before account is operational",
+      "validation": "FI must confirm self-cert is reasonable in light of other information held (AML/KYC, source of funds)",
+      "if_missing": "Do not open account OR open as undocumented with 90-day cure period (jurisdiction-specific)"
+    },
+    "pre_existing_individual_lower_value": {
+      "threshold": "Aggregate balance USD 1,000,000 or below at 31 December of the prior year",
+      "procedure": "Residence address test: current documented mailing/residence address from documentary evidence on file. Supplement with electronic search for indicia.",
+      "indicia": [
+        "Foreign country mailing address",
+        "Foreign country telephone number only",
+        "Standing instructions to pay to foreign country account",
+        "Currently effective power of attorney to foreign address",
+        "In-care-of or hold-mail address as sole address on file"
+      ]
+    },
+    "pre_existing_individual_high_value": {
+      "threshold": "Aggregate balance exceeds USD 1,000,000 at 31 December of the review year",
+      "procedure": "Enhanced: full electronic AND paper file search including all customer accounts. Relationship manager enquiry. Annual re-check.",
+      "relationship_manager_inquiry": "Mandatory: RM must confirm if they have actual knowledge of account holder being a reportable person"
+    },
+    "new_entity": {
+      "procedure": "Self-certification for entity classification and controlling persons if Passive NFFE.",
+      "timetable": "At or before account opening"
+    },
+    "pre_existing_entity": {
+      "threshold": "Review triggered only if aggregate balance exceeds USD 250,000",
+      "procedure": "Classify entity using existing AML/KYC documentation. Obtain self-cert for Passive NFFEs to identify controlling persons."
+    }
+  },
+  "entity_classification": {
+    "types": {
+      "Reporting_FI": "A Financial Institution required to report under CRS in its jurisdiction of residence",
+      "Non_Reporting_FI": "Specifically excluded FI (e.g. governmental entity, international org, certain pension funds)",
+      "Active_NFFE": "NFE where majority income is active; < 50% passive income; < 50% passive assets. No look-through required.",
+      "Passive_NFFE": "NFE that is not Active NFFE. Look-through to controlling persons required.",
+      "Wider_Approach_FI": "FI that reports on all non-resident account holders regardless of whether jurisdiction is AEOI partner"
+    },
+    "controlling_person_types": {
+      "CP_Individual_of_Legal_Person": "Individual exercising ultimate effective control of a legal person - typically owns/controls >= 25%",
+      "CP_Individual_of_Legal_Arrangement_Trust_Settlor": "Settlor of a trust",
+      "CP_Individual_of_Legal_Arrangement_Trust_Trustee": "Trustee of a trust",
+      "CP_Individual_of_Legal_Arrangement_Trust_Protector": "Protector of a trust",
+      "CP_Individual_of_Legal_Arrangement_Trust_Beneficiary": "Beneficiary of a trust",
+      "CP_Individual_of_Legal_Arrangement_Trust_Other": "Other natural person exercising ultimate control",
+      "CP_Individual_of_Legal_Arrangement_Other": "Natural person controlling a non-trust legal arrangement"
+    }
+  },
+  "xml_structure": {
+    "root_element": "CrsOECD",
+    "message_spec": {
+      "SendingCompanyIN": "FI identifier (GIIN or local TIN)",
+      "TransmittingCountry": "ISO 3166-1 alpha-2 country code of FI",
+      "ReceivingCountry": "ISO 3166-1 alpha-2 country code of receiving competent authority",
+      "MessageType": "CRS",
+      "MessageRefId": "Unique message identifier; jurisdiction-specific format",
+      "MessageTypeIndic": "CRS701 (new/amended), CRS702 (correction), CRS703 (nil report)"
+    },
+    "reporting_fi": {
+      "elements": [
+        "ResCountryCode",
+        "TIN",
+        "Name",
+        "Address"
+      ]
+    },
+    "account_report": {
+      "doc_spec": {
+        "DocTypeIndic": "OECD0 (resend), OECD1 (new), OECD2 (corrected), OECD3 (void/deletion)",
+        "DocRefId": "Unique document reference; jurisdiction-specific format",
+        "CorrDocRefId": "Reference to original DocRefId being corrected (OECD2/OECD3)"
+      },
+      "account_holder": {
+        "individual_fields": [
+          "ResCountryCode",
+          "TIN",
+          "Name (FirstName/LastName)",
+          "Address",
+          "BirthInfo (BirthDate, City, CountryInfo)"
+        ],
+        "entity_fields": [
+          "ResCountryCode",
+          "TIN",
+          "Name",
+          "Address",
+          "EntityClassification"
+        ]
+      },
+      "controlling_person": {
+        "fields": [
+          "ResCountryCode",
+          "TIN",
+          "Name",
+          "Address",
+          "BirthInfo",
+          "CtrlgPersonType"
+        ]
+      },
+      "account_balance": {
+        "elements": [
+          "AccountNumber",
+          "AcctHolderType",
+          "ClosedAccount",
+          "DormantAccount",
+          "MoneyAmount (AcctBal, CurrType)"
+        ]
+      },
+      "payment": {
+        "types": [
+          "CRS501 Dividends",
+          "CRS502 Interest",
+          "CRS503 Gross proceeds/redemptions",
+          "CRS504 Other"
+        ]
+      }
+    }
+  },
+  "correction_workflow": {
+    "amend": "DocTypeIndic OECD2; include CorrDocRefId referencing original DocRefId; submit full corrected account record",
+    "void": "DocTypeIndic OECD3; include CorrDocRefId referencing original DocRefId; used to delete a record entirely then refile with OECD1 if needed",
+    "nil_report": "MessageTypeIndic CRS703; CrsBody with no AccountReports elements"
+  },
+  "self_certification_forms": {
+    "individual": "Collect: tax residence jurisdictions, TINs per jurisdiction, date of birth, name, address. FI designs own form or uses OECD model.",
+    "entity": "Collect: entity classification, tax residence, TIN, registered address. For Passive NFFE: also collect controlling persons.",
+    "validity": "No statutory expiry under OECD standard; re-certification required on change of circumstances",
+    "change_of_circumstances": "FI must treat new self-cert as invalid if any change of circumstances makes existing self-cert incorrect"
+  },
+  "data_retention_minimum": "5 years from end of reporting year (OECD recommendation; local law may require more)",
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://www.oecd.org/tax/exchange-of-tax-information/standard-for-automatic-exchange-of-financial-account-information-for-tax-matters-9789264216525-en.htm",
+        "fetched_at": "2026-06-19",
+        "notes": "OECD CRS Standard (2014, updated 2023)"
+      },
+      {
+        "url": "https://www.oecd.org/tax/exchange-of-tax-information/schema-for-automatic-exchange-of-financial-account-information.htm",
+        "fetched_at": "2026-06-19",
+        "notes": "CRS XML Schema v2.0"
+      }
+    ],
+    "last_updated": "2026-06-19"
+  }
+}

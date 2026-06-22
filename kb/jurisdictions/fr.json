@@ -1,0 +1,119 @@
+{
+  "country": "France",
+  "code": "FR",
+  "authority": "Direction generale des finances publiques (DGFiP)",
+  "authority_acronym": "DGFiP",
+  "legal_basis": "Article 1649 AC du Code general des impots (CGI); Loi n.2016-1918 du 29 decembre 2016; Directive EU 2014/107/UE (DAC2) transposee en droit francais",
+  "crs_status": "Committed and active - first exchange 2017 (early adopter)",
+  "reporting_deadline": "30 June following the 31 December reporting year-end",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "portal_name": "EDI TDFC (tiers-declarants portal)",
+  "portal_url": "https://www.impots.gouv.fr/transferts-dinformations-en-application-des-dispositifs-crsdac2",
+  "submission_method": "EDI (Echange de Donnees Informatise) via tiers-declarants portal; XML upload per DGFiP Cahier des charges",
+  "xml_schema": "DGFiP-specific XML schema based on OECD CRS XML with French adaptations; reference document: Cahier des charges DAC2/CRS v3.6",
+  "nil_report_required": "Yes - nil declaration required when no reportable accounts",
+  "data_retention_years": "6 years under French fiscal law (Livre des procedures fiscales)",
+  "msg_ref_id_format": "FR + FI SIREN number + reporting year + sequence; per Cahier des charges specifications",
+  "doc_ref_id_format": "FR + reporting year + SIREN + internal account reference; per Cahier des charges",
+  "character_encoding": "UTF-8; French diacritics fully supported",
+  "local_fi_scope": [
+    "Etablissements de credit (banks) regulated by ACPR",
+    "Societes de gestion (asset managers) regulated by AMF",
+    "Assureurs (life insurance companies) regulated by ACPR for investment-linked contracts",
+    "OPC (Organismes de Placement Collectif): OPCVM, FIA",
+    "French branches of foreign FIs"
+  ],
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Broad participation retirement fund accounts",
+    "Narrow participation retirement fund accounts",
+    "Exempt collective investment vehicles",
+    "Qualified credit card issuer accounts (where applicable)",
+    "PEA (Plan d'Epargne en Actions) - exempt per French law",
+    "PEE/PERCO (employee savings plans) - exempt",
+    "Livret A, LDD, LEP regulated savings - specifically excluded"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000 aggregate balance",
+    "pre_existing_entity_review_trigger": "USD 250,000 aggregate balance",
+    "new_accounts": "No financial threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "submission_deadline": "30 June",
+    "new_account_dd": "At account opening"
+  },
+  "local_specific_rules": [
+    "CAHIER DES CHARGES: The DGFiP Cahier des charges DAC2/CRS (currently v3.6) is the mandatory technical specification. All XML submissions must comply with this document. It is only available in French.",
+    "TIERS-DECLARANTS MODEL: France requires FIs to submit via accredited third-party declarants (tiers-declarants) OR directly via the EDI portal. FIs without EDI capability must contract with an accredited intermediary.",
+    "DAC2 vs CRS: For EU partner exchanges, France applies DAC2 (EU Directive). For non-EU MCAA partners, OECD CRS rules apply. The Cahier des charges covers both.",
+    "SIREN NUMBER: The French SIREN (9-digit company identifier) is used as the primary FI identifier in DocRefId and MessageRefId construction.",
+    "PEA EXCLUSION: Plans d'Epargne en Actions are specifically excluded from CRS scope under French law, unlike standard OECD rules which would require evaluation.",
+    "AMF/ACPR SUPERVISION: DGFiP handles data collection; ACPR supervises banking/insurance compliance; AMF supervises investment firm compliance. FIs may receive inspection notices from their sector regulator.",
+    "NIL DECLARATION: French law requires a formal nil declaration (declaration neante). Failure to file nil declaration is a compliance breach.",
+    "FATCA COORDINATION: FATCA obligations for French FIs are also handled via DGFiP under France's Model 1A IGA, using the same EDI infrastructure but a different XML schema.",
+    "LANGUAGE: No official English guidance available. All DGFiP documentation is in French. FIs must work with French-language specifications."
+  ],
+  "rejection_error_codes": [
+    {
+      "code": "DGFiP-ERR-001",
+      "desc": "SIREN invalide ou absent",
+      "resolution": "Verifier le SIREN de l'etablissement declarant"
+    },
+    {
+      "code": "DGFiP-ERR-002",
+      "desc": "DocRefId deja existant",
+      "resolution": "Utiliser OECD2 avec CorrDocRefId pour correction"
+    },
+    {
+      "code": "DGFiP-ERR-003",
+      "desc": "Schema XML non conforme au Cahier des charges",
+      "resolution": "Valider contre le XSD fourni dans le Cahier des charges v3.6"
+    },
+    {
+      "code": "DGFiP-ERR-004",
+      "desc": "Code pays ISO invalide",
+      "resolution": "Utiliser les codes ISO 3166-1 alpha-2 valides"
+    }
+  ],
+  "penalties": {
+    "failure_to_report": "Article 1736 CGI: EUR 200 per account not reported; max EUR 50,000 per year per FI",
+    "false_declaration": "Article 1729 CGI: 40% to 80% of tax evaded by account holder (liability of FI if complicit)",
+    "failure_to_register": "Administrative penalty from DGFiP"
+  },
+  "contact": {
+    "website": "https://www.impots.gouv.fr/transferts-dinformations-en-application-des-dispositifs-crsdac2",
+    "notes": "All DGFiP communications are in French only"
+  },
+  "fatca": {
+    "iga_type": "Model 1A",
+    "iga_signed": "14 November 2013",
+    "iga_effective": "14 February 2014",
+    "portal": "Same EDI tiers-declarants infrastructure; separate XML schema per French FATCA Cahier des charges",
+    "key_rules": [
+      "France Model 1A: French FIs report FATCA data to DGFiP, which passes to IRS.",
+      "French FIs do NOT need individual IRS FATCA registration; covered by IGA.",
+      "US indicia: standard 7 indicia. Preuve contraire rules apply (account holder may rebut indicia).",
+      "FATCA technical spec is separate from CRS Cahier des charges; both in French."
+    ]
+  },
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://www.impots.gouv.fr/transferts-dinformations-en-application-des-dispositifs-crsdac2",
+        "fetched_at": "2026-06-19",
+        "notes": "DGFiP CRS/DAC2 page - verified"
+      }
+    ],
+    "last_updated": "2026-06-19",
+    "confidence": "High",
+    "gaps": [
+      "DGFiP Cahier des charges v3.6 exact PDF URL should be added when fetched",
+      "French rejection error codes should be verified against latest Cahier des charges",
+      "EDI portal submission URL (tiers-declarants login) should be added"
+    ]
+  }
+}

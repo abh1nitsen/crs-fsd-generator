@@ -1,0 +1,157 @@
+{
+  "country": "United Arab Emirates",
+  "code": "AE",
+  "authority": "UAE Ministry of Finance (MoF) - central coordinating authority",
+  "authority_acronym": "UAE MoF",
+  "legal_basis": "Federal Law No. 54 of 2018 (ratifying MAC); Federal Law No. 48 of 2018 (ratifying MCAA); Cabinet Resolution No. 93 of 2021 (implementing provisions); Ministerial Resolution No. 134 of 2021",
+  "crs_status": "Committed and active - CRS went live 1 January 2017. Multi-regulator jurisdiction.",
+  "reporting_deadline": "30 June following the 31 December reporting year-end [INFERRED - portal guidance says 'stipulated domestic reporting deadline'; verify via MoF portal announcement]",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "portal_name": "UAE FATCA/CRS System (MoF)",
+  "portal_url": "https://fatcacrs.mof.gov.ae",
+  "submission_method": "UAE FATCA/CRS System at fatcacrs.mof.gov.ae; combined portal for CRS and FATCA; XML upload",
+  "xml_schema": "OECD CRS XML Schema v2.0; MoF technical guidance in User Guide v2.4 (June 2026)",
+  "nil_report_required": "Yes - required per UAE CRS Circular on Reporting (June 2026) [INFERRED - verify in circular text]",
+  "data_retention_years": "5 years minimum under UAE CRS regulations",
+  "msg_ref_id_format": "AE + FI Tax Registration Number (TRN) + year + sequence",
+  "doc_ref_id_format": "AE + year + FI TRN + unique account reference; per MoF User Guide v2.4",
+  "character_encoding": "UTF-8; Arabic transliteration to Latin required for XML submission",
+  "regulatory_structure": {
+    "mainland_uae": {
+      "authority": "UAE Ministry of Finance (MoF)",
+      "banking_supervisor": "UAE Central Bank (CBUAE)",
+      "crs_fatca_contact": "crs.fatca@cbuae.gov.ae | +971 2 691 5555"
+    },
+    "adgm": {
+      "authority": "Abu Dhabi Global Market (ADGM) Financial Services Regulatory Authority (FSRA)",
+      "crs_fatca_contact": "fatca.crs@adgm.com | +971 2 333 8532",
+      "notes": "ADGM-licensed entities report via ADGM FSRA, not directly to MoF. Separate ADGM CRS Regulations 2017 apply."
+    },
+    "difc": {
+      "authority": "Dubai International Financial Centre (DIFC) Authority / Dubai Financial Services Authority (DFSA)",
+      "crs_fatca_contact": "info@difc.ae | +971 4 362 2222",
+      "notes": "DIFC-licensed entities are subject to DIFC Law No. 2 of 2018 and DIFC CRS Regulations 2020."
+    },
+    "sca": {
+      "authority": "Securities and Commodities Authority (SCA)",
+      "crs_fatca_contact": "sca_fatcarp@sca.ae",
+      "notes": "SCA-licensed securities FIs report under SCA Decision No. 21 of 2020."
+    }
+  },
+  "local_fi_scope": [
+    "UAE Central Bank licensed banks (conventional and Islamic)",
+    "Finance companies licensed by CBUAE",
+    "Investment companies and brokers licensed by SCA",
+    "Insurance companies with investment-linked products",
+    "ADGM-licensed FIs (separate regulatory track)",
+    "DIFC-licensed FIs (separate regulatory track)",
+    "Any FI with financial accounts of non-UAE-resident customers"
+  ],
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Broad participation retirement fund accounts",
+    "Narrow participation retirement fund accounts",
+    "Exempt collective investment vehicles",
+    "Qualified credit card issuer accounts (where applicable)",
+    "UAE government entity accounts (federal and emirate government accounts)",
+    "Accounts of international organisations with UAE offices"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000 aggregate balance",
+    "pre_existing_entity_review_trigger": "USD 250,000 aggregate balance",
+    "new_accounts": "No financial threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "submission_deadline": "30 June [INFERRED]",
+    "crs_live_date": "1 January 2017",
+    "fatca_iga_effective": "1 July 2014",
+    "user_guide_v24_published": "June 2026"
+  },
+  "local_specific_rules": [
+    "MULTI-REGULATOR STRUCTURE (CRITICAL): UAE has four separate regulatory tracks for CRS. An FI must identify its primary regulator: (1) Mainland UAE under CBUAE/MoF; (2) ADGM under ADGM FSRA; (3) DIFC under DFSA; (4) SCA for securities. Each regulator has separate CRS regulations and may have different procedural requirements. FIs must NOT assume mainland MoF rules apply to ADGM or DIFC entities.",
+    "COMBINED FATCA/CRS PORTAL: UAE uses a single system (fatcacrs.mof.gov.ae) for both CRS and FATCA submission. FIs must complete Risk Self-Assessment annually in addition to data reporting.",
+    "RISK SELF-ASSESSMENT: Required annually via the MoF portal system. FIs must assess and document their CRS compliance risk profile. Failure to complete Risk Self-Assessment is a compliance breach.",
+    "RESIDENCE BY INVESTMENT: UAE has a specific circular on Residence by Investment (RBI) and Citizenship by Investment (CBI) schemes. Account holders with UAE residence/citizenship obtained through such schemes may still be reportable to their original jurisdiction. FIs must apply due diligence accordingly.",
+    "UNDOCUMENTED ACCOUNTS CIRCULAR (JUNE 2026): MoF published a dedicated circular on undocumented accounts in June 2026. FIs must follow this for accounts where self-cert cannot be obtained.",
+    "ARABIC NAMES: Account holder names in Arabic must be transliterated to Latin characters for XML submission. FIs should use a consistent romanisation standard (e.g. ALA-LC).",
+    "TIN GUIDANCE (JUNE 2026): MoF published CRS Circular on TIN Guidance in June 2026 specifying how to handle missing TINs and which reason codes to use. Follow this circular.",
+    "USER GUIDE V2.4: MoF published FATCA/CRS System User Guide v2.4 in June 2026. This supersedes all earlier versions and should be followed for portal submission procedures.",
+    "ISLAMIC FINANCE PRODUCTS: UAE has a significant Islamic finance sector. Products such as murabaha accounts, sukuk holdings, and takaful contracts must be assessed for CRS scope. The MoF CRS Guidance Notes address Islamic finance account classification.",
+    "DIFC/ADGM SEPARATE LAWS: DIFC CRS Regulations 2020 and ADGM CRS Regulations 2017 (consolidated) are separate from mainland UAE CRS Regulations. DIFC/ADGM FIs should work with their respective regulations, not the mainland MoF rules."
+  ],
+  "rejection_error_codes": [
+    {
+      "code": "MOF-CRS-001",
+      "desc": "FI not registered in UAE FATCA/CRS system",
+      "resolution": "Register at fatcacrs.mof.gov.ae using TRN before submission"
+    },
+    {
+      "code": "MOF-CRS-002",
+      "desc": "Risk Self-Assessment not completed for current year",
+      "resolution": "Complete annual Risk Self-Assessment in portal before data submission"
+    },
+    {
+      "code": "MOF-CRS-003",
+      "desc": "XML schema validation error",
+      "resolution": "Validate against OECD CRS XSD and MoF User Guide v2.4 specifications"
+    },
+    {
+      "code": "MOF-CRS-004",
+      "desc": "DocRefId already submitted",
+      "resolution": "Use OECD2 with CorrDocRefId to amend"
+    },
+    {
+      "code": "MOF-CRS-005",
+      "desc": "TRN format invalid",
+      "resolution": "Use 15-digit UAE Tax Registration Number as FI identifier"
+    }
+  ],
+  "penalties": {
+    "failure_to_report": "Under Cabinet Resolution 93/2021: administrative fines up to AED 300,000 per violation (INFERRED - verify in resolution text)",
+    "failure_to_register": "Administrative penalty from MoF or relevant regulator",
+    "false_information": "Potential criminal referral under UAE Penal Code"
+  },
+  "contact": {
+    "mof_general": "info@mof.gov.ae | Toll free: 800533336 | +971 4 393 9000",
+    "cbuae": "crs.fatca@cbuae.gov.ae | +971 2 691 5555",
+    "adgm": "fatca.crs@adgm.com | +971 2 333 8532",
+    "difc": "info@difc.ae | +971 4 362 2222",
+    "sca": "sca_fatcarp@sca.ae",
+    "website": "https://mof.gov.ae/en/public-finance/international-relations/automatic-exchange-of-information-aeoi-fatca-crs/"
+  },
+  "fatca": {
+    "iga_type": "Model 1B (non-reciprocal)",
+    "iga_signed": "17 June 2015",
+    "iga_effective": "1 July 2014 (retroactive effective date per IGA terms)",
+    "federal_law": "Federal Law No. 9 of 2016",
+    "portal": "Same combined portal: https://fatcacrs.mof.gov.ae",
+    "key_rules": [
+      "UAE Model 1B (non-reciprocal): UAE FIs report FATCA data to MoF, which passes to IRS. UAE does NOT receive US tax information in return (non-reciprocal).",
+      "US person identification: 7 standard indicia. UAE-specific guidance in MoF FATCA Guidance Notes.",
+      "FATCA submission via same MoF portal as CRS.",
+      "FATCA User Guide v2.4 (June 2026) applies to FATCA portal procedures.",
+      "ADGM, DIFC, and SCA entities also subject to FATCA under their respective regulations.",
+      "US TIN Guidance circular (June 2026) published by MoF for handling missing US TINs."
+    ]
+  },
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://mof.gov.ae/en/public-finance/international-relations/automatic-exchange-of-information-aeoi-fatca-crs/",
+        "fetched_at": "2026-06-19",
+        "notes": "UAE MoF AEOI page - fetched and verified. Page updated 18 June 2026. User Guide v2.4 confirmed."
+      }
+    ],
+    "last_updated": "2026-06-19",
+    "confidence": "High",
+    "gaps": [
+      "Reporting deadline (30 June) is INFERRED; verify via MoF CRS Circular on Reporting (June 2026 PDF)",
+      "Penalty amounts under Cabinet Resolution 93/2021 should be confirmed from resolution text",
+      "ADGM and DIFC CRS regulatory deadline may differ from mainland deadline; check ADGM/DFSA guidance"
+    ]
+  }
+}

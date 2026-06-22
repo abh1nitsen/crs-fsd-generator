@@ -1,0 +1,128 @@
+{
+  "country": "Switzerland",
+  "code": "CH",
+  "authority": "Federal Tax Administration (FTA) / Eidgenoessische Steuerverwaltung (ESTV)",
+  "authority_acronym": "FTA / ESTV",
+  "legal_basis": "Bundesgesetz ueber den internationalen automatischen Informationsaustausch in Steuersachen (AIAG) vom 18. Dezember 2015; in force 1 January 2017",
+  "crs_status": "Committed and active - data collected from 2017; first exchange 2018. Exchange with 101 countries (as of 2026).",
+  "reporting_deadline": "30 June following the 31 December reporting year-end [INFERRED - verify with ESTV annual notice]",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "portal_name": "FTA ePortal (new as of May 2026; replaced previous ESTV SuisseTax portal)",
+  "portal_url": "https://estvportal.estv.admin.ch",
+  "submission_method": "FI submits XML to ESTV via FTA ePortal; ESTV forwards to partner jurisdiction competent authority",
+  "xml_schema": "OECD CRS XML Schema v2.0; ESTV publishes technical specifications in German/French/Italian",
+  "nil_report_required": "Yes - nil report required for years with zero reportable accounts [INFERRED - verify with ESTV]",
+  "data_retention_years": "10 years (Swiss Code of Obligations; AO standard)",
+  "msg_ref_id_format": "CH + FI UID (Unternehmens-Identifikationsnummer) + year + sequence",
+  "doc_ref_id_format": "CH + year + FI UID + account unique reference; format per ESTV technical spec",
+  "character_encoding": "UTF-8",
+  "local_fi_scope": [
+    "Swiss banks (Banken) regulated by FINMA",
+    "Collective investment vehicles (kollektive Kapitalanlagen) under KAG: funds, SICAVs, limited partnerships",
+    "Swiss life insurance companies with investment-linked products",
+    "Foreign banks with Swiss branches classified as Swiss-resident FIs"
+  ],
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Broad participation retirement fund accounts",
+    "Narrow participation retirement fund accounts",
+    "Exempt collective investment vehicles",
+    "Qualified credit card issuer accounts (where applicable)",
+    "Swiss retirement savings accounts (3a and 3b pillar) specifically designated as non-reporting under AIAG",
+    "Swiss vested benefits accounts (Freizuegigkeitskonten) if designated as non-reporting"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000 aggregate balance",
+    "pre_existing_entity_review_trigger": "USD 250,000 aggregate balance",
+    "new_accounts": "No financial threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "submission_deadline": "30 June [INFERRED]",
+    "new_account_dd": "At account opening",
+    "portal_migration": "May 2026: New FTA ePortal launched, combining multiple ESTV online services"
+  },
+  "local_specific_rules": [
+    "ROUTING VIA ESTV: Unlike FATCA (where Switzerland uses Model 2 and FIs report direct to IRS), all CRS/AEOI data flows FI -> ESTV ePortal -> partner competent authority. ESTV acts as central hub.",
+    "FATCA MODEL 2 DIFFERENCE: Switzerland signed a FATCA Model 2 IGA (unusual among major financial centres). This means Swiss FIs must register on the IRS FATCA portal and report DIRECTLY to the IRS (not via ESTV). This is the OPPOSITE of CRS routing.",
+    "LANGUAGE: The ESTV English pages are informational only and have no legal force. Legally binding guidance is published in German (German edition), French, and Italian. FIs must work with German-language primary sources.",
+    "UID NUMBER: The Swiss UID (9-digit Unternehmens-Identifikationsnummer, format CHE-xxx.xxx.xxx) is the primary FI identifier used in AIAG reporting.",
+    "FINMA SUPERVISION: FINMA supervises Swiss bank compliance with AEOI from a prudential/conduct perspective. ESTV manages the data collection and transmission.",
+    "PARTNERSHIP STRUCTURE: Switzerland's AEOI is based on bilateral TIEA-equivalent agreements (AEOI agreements) plus the Multilateral Competent Authority Agreement (MCAA). Strategic management of AEOI agreements is by the State Secretariat for International Finance (SIF), not ESTV.",
+    "EPORTAL MIGRATION (2026): ESTV launched a new consolidated FTA ePortal in May 2026. FIs must re-register/migrate from the old SuisseTax portal. Check ePortal.estv.admin.ch for migration instructions.",
+    "PHISHING WARNING: ESTV has issued a specific warning (as of May 2026) about phishing emails claiming to be from the FTA. FIs should only access ESTV services via estvportal.estv.admin.ch.",
+    "SELF-CERT VALIDITY: Swiss AIAG requires self-certs to be re-obtained if circumstances change. No statutory maximum age for self-cert if circumstances remain unchanged."
+  ],
+  "rejection_error_codes": [
+    {
+      "code": "ESTV-VAL-001",
+      "desc": "XML schema validation failure",
+      "resolution": "Validate against OECD CRS XSD and ESTV technical spec"
+    },
+    {
+      "code": "ESTV-VAL-002",
+      "desc": "FI UID not registered in ePortal",
+      "resolution": "Register FI in new FTA ePortal before submission"
+    },
+    {
+      "code": "ESTV-VAL-003",
+      "desc": "DocRefId already submitted",
+      "resolution": "Use OECD2 correction with CorrDocRefId"
+    },
+    {
+      "code": "ESTV-VAL-004",
+      "desc": "Partner country not in Switzerland AEOI agreement list",
+      "resolution": "Check SIF list of active AEOI partners; account may not be reportable"
+    }
+  ],
+  "penalties": {
+    "failure_to_report": "AIAG art. 43: fine up to CHF 250,000 per violation",
+    "obstruction_of_authority": "Up to CHF 10,000 under AIAG",
+    "criminal_sanctions": "Wilful non-reporting can trigger criminal referral under Swiss StGB"
+  },
+  "contact": {
+    "team": "Team AEOI, Division for Exchange of Information in Tax Matters",
+    "address": "Eigerstrasse 65, 3003 Berne, Switzerland",
+    "contact_form": "https://www.estv.admin.ch/de/nachricht-an-country-by-country-reporting (German only)",
+    "website": "https://www.estv.admin.ch/en/automatic-exchange-of-information-aeoi"
+  },
+  "fatca": {
+    "iga_type": "Model 2 (UNIQUE - FIs report directly to IRS)",
+    "iga_signed": "14 February 2013",
+    "iga_effective": "2 June 2014",
+    "portal": "IRS IDES (International Data Exchange Service) - direct submission by Swiss FIs",
+    "key_rules": [
+      "CRITICAL: Switzerland is Model 2 FATCA. Swiss FIs must register on IRS FATCA registration portal and obtain a GIIN.",
+      "Swiss FIs report US account information DIRECTLY to the IRS via IDES, NOT via ESTV.",
+      "ESTV's role in FATCA is limited to coordinating legal basis; data does not route through ESTV.",
+      "This is the opposite of Swiss CRS workflow where ESTV acts as intermediary.",
+      "US indicia: standard 7 indicia. Swiss banking secrecy has been partially waived for FATCA compliance.",
+      "Swiss FIs must withhold 30% on US-source payments to non-compliant account holders (US persons who do not consent to disclosure)."
+    ]
+  },
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://www.estv.admin.ch/en/automatic-exchange-of-information-aeoi",
+        "fetched_at": "2026-06-19",
+        "notes": "ESTV AEOI main page - fetched and verified"
+      },
+      {
+        "url": "https://www.estv.admin.ch/en/aeoi-legal-basis-and-publications",
+        "fetched_at": "2026-06-19",
+        "notes": "ESTV AEOI legal basis page - fetched"
+      }
+    ],
+    "last_updated": "2026-06-19",
+    "confidence": "Medium",
+    "gaps": [
+      "Reporting deadline (30 June) is INFERRED - must be confirmed via ESTV German-language guidance or annual communication",
+      "Nil report requirement should be confirmed against AIAG text",
+      "New FTA ePortal technical specifications should be obtained for current DocRefId/MessageRefId formats",
+      "ESTV annual exchange statistics (101 countries) date of fetch noted"
+    ]
+  }
+}

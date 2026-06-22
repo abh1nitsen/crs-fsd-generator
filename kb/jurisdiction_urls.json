@@ -1,0 +1,212 @@
+{
+  "Australia": {
+    "code": "AU",
+    "kb_file": "au.json",
+    "authority": "Australian Taxation Office (ATO)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/australia.htm",
+    "local_url": "https://www.ato.gov.au/businesses-and-organisations/international-tax-for-businesses/foreign-account-tax-compliance-act-fatca-and-common-reporting-standard-crs"
+  },
+  "Austria": {
+    "code": "AT",
+    "kb_file": "at.json",
+    "authority": "Austrian Federal Ministry of Finance (BMF)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/austria.htm",
+    "local_url": "https://www.bmf.gv.at/en/topics/taxes/international-tax-law/automatic-exchange-of-information.html"
+  },
+  "Belgium": {
+    "code": "BE",
+    "kb_file": "be.json",
+    "authority": "Belgian Federal Public Service Finance (SPF Finance)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/belgium.htm",
+    "local_url": "https://finances.belgium.be/en/E-services/common_reporting_standard"
+  },
+  "Bermuda": {
+    "code": "BM",
+    "kb_file": "bm.json",
+    "authority": "Bermuda Ministry of Finance / Bermuda Monetary Authority (BMA)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/bermuda.htm",
+    "local_url": "https://www.bma.bm/supervision/common-reporting-standard-crs"
+  },
+  "British Virgin Islands": {
+    "code": "VG",
+    "kb_file": "vg.json",
+    "authority": "BVI International Tax Authority (ITA)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/british-virgin-islands.htm",
+    "local_url": "https://www.bviita.vg/common-reporting-standard"
+  },
+  "Canada": {
+    "code": "CA",
+    "kb_file": "ca.json",
+    "authority": "Canada Revenue Agency (CRA)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/canada.htm",
+    "local_url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/completing-slips-summaries/financial-slips-summaries/common-reporting-standard.html"
+  },
+  "Cayman Islands": {
+    "code": "KY",
+    "kb_file": "ky.json",
+    "authority": "Cayman Islands Department for International Tax Cooperation (DITC)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/cayman-islands.htm",
+    "local_url": "https://www.ditc.ky/automatic-exchange-of-information/common-reporting-standard/"
+  },
+  "Cyprus": {
+    "code": "CY",
+    "kb_file": "cy.json",
+    "authority": "Cyprus Tax Department",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/cyprus.htm",
+    "local_url": "https://www.mof.gov.cy/mof/tax/taxdep.nsf/All/CRS"
+  },
+  "Denmark": {
+    "code": "DK",
+    "kb_file": "dk.json",
+    "authority": "Danish Tax Agency (Skattestyrelsen)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/denmark.htm",
+    "local_url": "https://www.skat.dk/en/businesses/international/common-reporting-standard-crs/"
+  },
+  "Finland": {
+    "code": "FI",
+    "kb_file": "fi.json",
+    "authority": "Finnish Tax Administration (Verohallinto)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/finland.htm",
+    "local_url": "https://www.vero.fi/en/businesses-and-corporations/taxes-and-charges/international-tax-issues/crs/"
+  },
+  "France": {
+    "code": "FR",
+    "kb_file": "fr.json",
+    "authority": "French Tax Authority (Direction Generale des Finances Publiques, DGFiP)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/france.htm",
+    "local_url": "https://www.impots.gouv.fr/portail/node/10841"
+  },
+  "Germany": {
+    "code": "DE",
+    "kb_file": "de.json",
+    "authority": "Federal Central Tax Office (Bundeszentralamt fur Steuern, BZSt)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/germany.htm",
+    "local_url": "https://www.bzst.de/EN/Businesses/Automatic_Exchange_of_Information/automatic_exchange_of_information_node.html"
+  },
+  "Guernsey": {
+    "code": "GG",
+    "kb_file": "gg.json",
+    "authority": "Guernsey Revenue Service",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/guernsey.htm",
+    "local_url": "https://www.gov.gg/CRS"
+  },
+  "Hong Kong": {
+    "code": "HK",
+    "kb_file": "hk.json",
+    "authority": "Inland Revenue Department (IRD)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/hong-kong-china.htm",
+    "local_url": "https://www.ird.gov.hk/eng/tax/aeoi.htm"
+  },
+  "Ireland": {
+    "code": "IE",
+    "kb_file": "ie.json",
+    "authority": "Irish Revenue Commissioners",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/ireland.htm",
+    "local_url": "https://www.revenue.ie/en/companies-and-charities/financial-services/aeoi/index.aspx"
+  },
+  "Isle of Man": {
+    "code": "IM",
+    "kb_file": "im.json",
+    "authority": "Isle of Man Income Tax Division",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/isle-of-man.htm",
+    "local_url": "https://www.gov.im/categories/tax-vat-and-your-money/income-tax-and-national-insurance/aeoi/"
+  },
+  "Italy": {
+    "code": "IT",
+    "kb_file": "it.json",
+    "authority": "Italian Revenue Agency (Agenzia delle Entrate)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/italy.htm",
+    "local_url": "https://www.agenziaentrate.gov.it/portale/web/english/nse/businesses/crs-and-fatca"
+  },
+  "Japan": {
+    "code": "JP",
+    "kb_file": "jp.json",
+    "authority": "National Tax Agency (NTA)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/japan.htm",
+    "local_url": "https://www.nta.go.jp/english/taxes/aeoi/index.htm"
+  },
+  "Jersey": {
+    "code": "JE",
+    "kb_file": "je.json",
+    "authority": "Jersey Revenue Jersey",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/jersey.htm",
+    "local_url": "https://www.gov.je/TaxesMoney/IncomeTax/Companies/Guidance/Pages/CommonReportingStandard.aspx"
+  },
+  "Luxembourg": {
+    "code": "LU",
+    "kb_file": "lu.json",
+    "authority": "Luxembourg Tax Administration (Administration des Contributions Directes, ACD)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/luxembourg.htm",
+    "local_url": "https://impotsdirects.public.lu/en/az/c/crs.html"
+  },
+  "Malta": {
+    "code": "MT",
+    "kb_file": "mt.json",
+    "authority": "Malta Commissioner for Revenue (CFR)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/malta.htm",
+    "local_url": "https://cfr.gov.mt/en/irt/Pages/CRS-FATCA.aspx"
+  },
+  "Netherlands": {
+    "code": "NL",
+    "kb_file": "nl.json",
+    "authority": "Dutch Tax and Customs Administration (Belastingdienst)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/netherlands.htm",
+    "local_url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/business/other_subjects/common_reporting_standard/"
+  },
+  "New Zealand": {
+    "code": "NZ",
+    "kb_file": "nz.json",
+    "authority": "Inland Revenue Department (IRD)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/new-zealand.htm",
+    "local_url": "https://www.ird.govt.nz/international-tax/exchange-of-information/crs"
+  },
+  "Norway": {
+    "code": "NO",
+    "kb_file": "no.json",
+    "authority": "Norwegian Tax Administration (Skatteetaten)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/norway.htm",
+    "local_url": "https://www.skatteetaten.no/en/business-and-organisation/crs/"
+  },
+  "Singapore": {
+    "code": "SG",
+    "kb_file": "sg.json",
+    "authority": "Inland Revenue Authority of Singapore (IRAS)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/singapore.htm",
+    "local_url": "https://www.iras.gov.sg/taxes/international-tax/common-reporting-standard-(crs)"
+  },
+  "Spain": {
+    "code": "ES",
+    "kb_file": "es.json",
+    "authority": "Spanish Tax Agency (Agencia Tributaria, AEAT)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/spain.htm",
+    "local_url": "https://www.agenciatributaria.es/AEAT.internet/en_gb/Inicio/La_Agencia_Tributaria/Normativa/Fiscalidad_Internacional/CRS_Common_Reporting_Standard_.shtml"
+  },
+  "Sweden": {
+    "code": "SE",
+    "kb_file": "se.json",
+    "authority": "Swedish Tax Agency (Skatteverket)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/sweden.htm",
+    "local_url": "https://www.skatteverket.se/servicelankar/otherlanguages/inenglish/businessesandemployers/internationalinformation/crs.html"
+  },
+  "Switzerland": {
+    "code": "CH",
+    "kb_file": "ch.json",
+    "authority": "Swiss Federal Tax Administration (SFTA)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/switzerland.htm",
+    "local_url": "https://www.estv.admin.ch/estv/en/home/international-tax-law/automatic-exchange-of-information/aeoi.html"
+  },
+  "United Arab Emirates": {
+    "code": "AE",
+    "kb_file": "ae.json",
+    "authority": "UAE Ministry of Finance (MoF)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/united-arab-emirates.htm",
+    "local_url": "https://mof.gov.ae/en/StrategicPartnerships/pages/CRS.aspx"
+  },
+  "United Kingdom": {
+    "code": "GB",
+    "kb_file": "gb.json",
+    "authority": "HM Revenue and Customs (HMRC)",
+    "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/united-kingdom.htm",
+    "local_url": "https://www.gov.uk/guidance/common-reporting-standard"
+  }
+}

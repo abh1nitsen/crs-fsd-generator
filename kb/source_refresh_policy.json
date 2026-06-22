@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Controlled KB refresh strategy for CRS Blueprint",
+  "runtime_generation_policy": "Generation uses curated KB and registered source metadata. It must not depend on live official-site fetches or automatically rewrite compliance facts.",
+  "refresh_flow": [
+    "Load registered official sources only",
+    "Check source availability and metadata outside the generation path",
+    "Flag unavailable or changed sources for human review",
+    "Update jurisdiction facts only after review/sign-off",
+    "Run regression tests before release"
+  ],
+  "critical_facts_requiring_review": [
+    "filing_deadline",
+    "submission_route",
+    "schema_version",
+    "TIN format",
+    "missing-TIN treatment",
+    "nil-reporting",
+    "self-certification cure/reliability",
+    "correction process",
+    "FATCA route"
+  ],
+  "user_facing_freshness_labels": [
+    "Fresh",
+    "Review soon",
+    "Stale - review recommended",
+    "Changed since verification",
+    "Unavailable",
+    "Not checked"
+  ],
+  "technical_diagnostics_location": "Generation diagnostics / source-health report; not a blocker if deterministic generation succeeds"
+}

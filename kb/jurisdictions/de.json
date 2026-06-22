@@ -1,0 +1,119 @@
+{
+  "country": "Germany",
+  "code": "DE",
+  "authority": "Bundeszentralamt fuer Steuern (BZSt)",
+  "authority_acronym": "BZSt",
+  "legal_basis": "Finanzkonten-Informationsaustauschgesetz (FkAustG) vom 21. Dezember 2015 (BGBl. I S. 2531); Gemeinsamer Meldestandard-Umsetzungsgesetz (GMS-UmsG)",
+  "crs_status": "Committed and active - first exchange 2017 (early adopter)",
+  "reporting_deadline": "31 July following the 31 December reporting year-end",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "portal_name": "Mein BZSt-Online-Portal (MOP)",
+  "portal_url": "https://www.bzst.de/DE/Unternehmen/Intern_Informationsaustausch/CommonReportingStandard/crs_node.html",
+  "submission_method": "BZSt Online Portal (MOP); XML upload; ELSTER not used for CRS",
+  "xml_schema": "OECD CRS XML Schema v2.0; BZSt publishes German-specific technical guidance",
+  "nil_report_required": "Yes - nil report required if Reporting FI has no reportable accounts",
+  "data_retention_years": "6 years from end of reporting year (Abgabenordnung)",
+  "msg_ref_id_format": "DE + Reporting Year + FI identifier + sequence; exact format in BZSt technical spec",
+  "doc_ref_id_format": "DE + Reporting Year + FI tax number (Steuer-IdNr) + account unique reference",
+  "character_encoding": "UTF-8",
+  "local_fi_scope": [
+    "All German-resident credit institutions (Kreditinstitute) per KWG",
+    "German-resident investment companies (Kapitalverwaltungsgesellschaften) under KAGB",
+    "German-resident life insurance companies with investment-linked products",
+    "German branches of foreign FIs resident in Germany for CRS purposes"
+  ],
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Broad participation retirement fund accounts",
+    "Narrow participation retirement fund accounts",
+    "Exempt collective investment vehicles",
+    "Qualified credit card issuer accounts (where applicable)",
+    "Riester-Rente and Ruerup-Rente pension contracts (state-subsidised pensions)",
+    "Bausparvertraege (building savings contracts) registered with BZSt as non-reporting"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000 aggregate balance",
+    "pre_existing_entity_review_trigger": "USD 250,000 aggregate balance",
+    "new_accounts": "No financial threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "submission_deadline": "31 July",
+    "new_account_dd": "At account opening"
+  },
+  "local_specific_rules": [
+    "90-DAY SELF-CERT RULE WITH ACCOUNT BLOCK (UNIQUE TO GERMANY): Under FkAustG s.19, if a new account holder does not provide a valid self-certification within 90 days of account opening, the FI is required to BLOCK the account from processing withdrawals or fund transfers until self-cert is received. This is a unique German rule with no OECD equivalent.",
+    "ACCOUNT FREEZE ENFORCEMENT: The account block under the 90-day rule is legally binding. FI must implement a system flag to suspend outbound transactions on day 91 if self-cert is outstanding. Compliance teams must monitor and report freeze status.",
+    "NIL REPORTS: Mandatory in Germany unlike some other jurisdictions. FI must actively submit a nil report for years with no reportable accounts.",
+    "EU DAC2 OVERLAY: Germany applies EU Directive 2014/107/EU (DAC2) in addition to OECD CRS. For EU partner exchanges, DAC2 governs; for non-EU MCAA partners, OECD CRS governs. In practice the rules are identical.",
+    "SELF-CERT LANGUAGE: German language self-certification forms preferred by BZSt for German-based accounts, though OECD forms in English are accepted.",
+    "ELSTER EXCLUSION: Germany's standard tax filing system (ELSTER) is NOT used for CRS. BZSt Online Portal (MOP) is the mandatory channel.",
+    "ENTITY CLASSIFICATION - INVESTMENTVERMOGEN: German investment funds (Investmentvermogen per InvStG) have specific classification rules that differ slightly from OECD standard. Verify with BZSt technical guidance.",
+    "TECHNICAL GUIDANCE: BZSt publishes an annual 'Technisches Handbuch' (technical manual) for CRS XML submission. Always use the current year version."
+  ],
+  "rejection_error_codes": [
+    {
+      "code": "BZSt-VAL-001",
+      "desc": "Schema validation error",
+      "resolution": "Validate against BZSt-published XSD; check mandatory elements"
+    },
+    {
+      "code": "BZSt-VAL-002",
+      "desc": "DocRefId already exists (duplicate)",
+      "resolution": "Use OECD2 with CorrDocRefId if amending"
+    },
+    {
+      "code": "BZSt-VAL-003",
+      "desc": "FI not registered in BZSt system",
+      "resolution": "Register FI with BZSt before first submission"
+    },
+    {
+      "code": "BZSt-VAL-004",
+      "desc": "Reporting period mismatch",
+      "resolution": "Confirm ReportingPeriod element matches registered reporting year"
+    },
+    {
+      "code": "BZSt-VAL-005",
+      "desc": "Invalid TIN format for stated jurisdiction",
+      "resolution": "Review OECD TIN guidance; populate IssuedBy correctly"
+    }
+  ],
+  "penalties": {
+    "failure_to_report": "Under AO s.379(2): fine up to EUR 25,000 per violation",
+    "non_registration": "Fine up to EUR 25,000",
+    "account_block_violation": "Administrative penalty for failure to implement account block within 90 days"
+  },
+  "contact": {
+    "website": "https://www.bzst.de/DE/Unternehmen/Intern_Informationsaustausch/CommonReportingStandard/crs_node.html",
+    "phone": "+49 228 406-0 (BZSt central)"
+  },
+  "fatca": {
+    "iga_type": "Model 1A",
+    "iga_signed": "31 May 2013",
+    "iga_effective": "11 December 2013",
+    "portal": "BZSt Online Portal (MOP) for FATCA reporting",
+    "key_rules": [
+      "Germany Model 1A: German FIs report FATCA data to BZSt, which passes to IRS.",
+      "US persons identified by 7 standard FATCA indicia.",
+      "German FIs registered as FFIs on IRS FATCA registration portal for GIIN, but report via BZSt."
+    ]
+  },
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://www.bzst.de/DE/Unternehmen/Intern_Informationsaustausch/CommonReportingStandard/Verfahren/verfahren_node.html",
+        "fetched_at": "2026-06-19",
+        "notes": "BZSt CRS procedure page - fetched and verified"
+      }
+    ],
+    "last_updated": "2026-06-19",
+    "confidence": "High",
+    "gaps": [
+      "BZSt rejection error code identifiers should be confirmed against latest BZSt Technisches Handbuch",
+      "Current year BZSt technical manual URL should be added when available"
+    ]
+  }
+}

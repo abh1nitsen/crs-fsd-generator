@@ -1,0 +1,119 @@
+{
+  "country": "Netherlands",
+  "code": "NL",
+  "authority": "Belastingdienst (Dutch Tax and Customs Administration)",
+  "authority_acronym": "Belastingdienst",
+  "legal_basis": "Wet op de internationale bijstandsverlening bij de heffing van belastingen (WIB); amended 1 January 2016 to incorporate CRS; EU Directive 2014/107/EU (DAC2) transposed",
+  "crs_status": "Committed and active - first exchange 2017 (early adopter)",
+  "reporting_deadline": "30 June following the 31 December reporting year-end [INFERRED - verify with Belastingdienst announcement]",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "portal_name": "Digipoort (Dutch electronic gateway for business tax submissions)",
+  "portal_url": "https://www.logius.nl/diensten/digipoort",
+  "submission_method": "Digipoort electronic gateway; XML upload in OECD CRS XML format; PKI-certificate required for authentication",
+  "xml_schema": "OECD CRS XML Schema v2.0; DAC2 XML for EU exchanges",
+  "nil_report_required": "Yes - nil report required under Dutch WIB [INFERRED - verify with Belastingdienst]",
+  "data_retention_years": "7 years (Algemene wet inzake rijksbelastingen art. 52; standard Dutch fiscal record retention)",
+  "msg_ref_id_format": "NL + FI RSIN (Rechtspersonen en Samenwerkingsverbanden Informatienummer) + year + sequence",
+  "doc_ref_id_format": "NL + year + FI RSIN + unique account reference",
+  "character_encoding": "UTF-8",
+  "local_fi_scope": [
+    "Dutch banks (kredietinstellingen) under Wft (Wet op het financieel toezicht) supervised by DNB",
+    "Dutch investment firms (beleggingsondernemingen) supervised by AFM",
+    "Dutch life insurance companies (levensverzekeraars) with beleggingsverzekeringen (investment-linked)",
+    "Dutch investment funds (beleggingsinstellingen): UCITS (icbe) and AIFs supervised by AFM",
+    "Dutch branches of foreign FIs resident in Netherlands for CRS purposes"
+  ],
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Broad participation retirement fund accounts",
+    "Narrow participation retirement fund accounts",
+    "Exempt collective investment vehicles",
+    "Qualified credit card issuer accounts (where applicable)",
+    "Lijfrente accounts (annuity savings) specifically qualifying as pension - verify exclusion with Belastingdienst",
+    "Dutch state pension (AOW) entitlements - governmental, excluded"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000 aggregate balance",
+    "pre_existing_entity_review_trigger": "USD 250,000 aggregate balance",
+    "new_accounts": "No financial threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "submission_deadline": "30 June [INFERRED]",
+    "new_account_dd": "At account opening"
+  },
+  "local_specific_rules": [
+    "DIGIPOORT AND PKI CERTIFICATE: Dutch CRS submissions go via Digipoort, the Dutch government's secure electronic gateway. FIs must have a valid PKI-Overheid certificate (Dutch government PKI) to authenticate. Obtaining and renewing PKI certificates requires lead time; plan well in advance.",
+    "RSIN AS FI IDENTIFIER: The RSIN (Rechtspersonen en Samenwerkingsverbanden Informatienummer, 9 digits) is the primary identifier for Dutch legal entities in tax matters. It is used in DocRefId and MessageRefId construction.",
+    "DAC2 OVERLAY: Netherlands as EU member applies EU DAC2 Directive for exchanges with EU member states. For non-EU CRS partners, MCAA applies. In practice, the XML reporting format is the same.",
+    "DNB/AFM SUPERVISION: De Nederlandsche Bank (DNB) supervises Dutch banks and insurers from a prudential perspective. AFM supervises investment firms. Belastingdienst supervises CRS data reporting. FIs may be inspected by multiple regulators.",
+    "SELF-CERTIFICATION (VERKLARING FISCAAL WOON-/VESTIGINGSLAND): Account holders must provide a 'verklaring' (declaration) of their fiscal residence country when asked by the FI. Dutch financial institutions typically have this embedded in account opening forms.",
+    "DUTCH PENSION EXCLUSION: Most Dutch pension funds (pensioenfondsen) qualify as Non-Reporting FIs. However, FIs managing assets FOR pension funds must still classify those fund accounts correctly.",
+    "EU BENEFICIAL OWNER REGISTER: Dutch FIs should cross-reference their CRS self-cert procedures with UBO (Ultimate Beneficial Owner) register obligations under Dutch AML law, as the information overlaps.",
+    "WEBPAGE LAST MODIFIED: The official Belastingdienst CRS page was last modified 22 January 2026 per page metadata.",
+    "LANGUAGE: Official Belastingdienst CRS guidance is in Dutch (Nederlands) only. English sub-pages exist for general tax information but the CRS-specific sub-pages are Dutch-only."
+  ],
+  "rejection_error_codes": [
+    {
+      "code": "BELD-CRS-001",
+      "desc": "PKI certificate authentication failure",
+      "resolution": "Renew PKI-Overheid certificate; check Digipoort authentication settings"
+    },
+    {
+      "code": "BELD-CRS-002",
+      "desc": "RSIN not registered for CRS",
+      "resolution": "Register FI with Belastingdienst for CRS obligations"
+    },
+    {
+      "code": "BELD-CRS-003",
+      "desc": "XML schema validation error",
+      "resolution": "Validate against OECD CRS XSD; check Belastingdienst technical specifications"
+    },
+    {
+      "code": "BELD-CRS-004",
+      "desc": "DocRefId already exists",
+      "resolution": "Use OECD2 with CorrDocRefId to amend"
+    }
+  ],
+  "penalties": {
+    "failure_to_report": "Under WIB / AWR: administrative fine up to EUR 8,200 per violation (standard AWR maximum); higher for deliberate non-compliance",
+    "late_submission": "Administrative fine; Belastingdienst may issue compliance notice",
+    "failure_to_maintain_records": "Fine under AWR art. 67ca"
+  },
+  "contact": {
+    "website": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/internationaal/vermogen/common_reporting_standard/common_reporting_standard",
+    "notes": "Dutch-language guidance only for CRS. English sub-pages available for general info."
+  },
+  "fatca": {
+    "iga_type": "Model 1A",
+    "iga_signed": "18 December 2013",
+    "iga_effective": "1 July 2014",
+    "portal": "Digipoort (same as CRS; separate FATCA XML)",
+    "key_rules": [
+      "Netherlands Model 1A: Dutch FIs report FATCA data to Belastingdienst, which passes to IRS.",
+      "US indicia: standard 7 indicia.",
+      "FATCA reporting via Digipoort alongside CRS.",
+      "Dutch FIs do not register as FFIs on IRS portal; covered by IGA."
+    ]
+  },
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/internationaal/vermogen/common_reporting_standard/common_reporting_standard",
+        "fetched_at": "2026-06-19",
+        "notes": "Belastingdienst CRS main page - fetched and verified. Page modified 22 Jan 2026."
+      }
+    ],
+    "last_updated": "2026-06-19",
+    "confidence": "Medium",
+    "gaps": [
+      "Reporting deadline (30 June) is INFERRED; verify with Belastingdienst annual announcement",
+      "Digipoort technical submission specifications URL should be added",
+      "Penalty amounts should be confirmed against current WIB / AWR provisions",
+      "Dutch-specific XML technical requirements should be obtained from Belastingdienst"
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "country": "Cayman Islands",
+  "code": "KY",
+  "authority": "Cayman Islands Department for International Tax Cooperation (DITC)",
+  "crs_status": "Early Adopter - active since 2017",
+  "reporting_deadline": "31 July following the reporting calendar year",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "submission_method": "DITC Portal (AEOI Portal), CRS XML format",
+  "xml_schema": "OECD CRS XML Schema v2.0",
+  "excluded_accounts": [
+    "Cayman Islands government accounts",
+    "International organisation accounts",
+    "Exempt pension funds",
+    "Certain registered mutual funds with short-term reporting waivers",
+    "Accounts below de minimis"
+  ],
+  "reportable_account_types_by_fi": {
+    "DEPOSITORY": ["Bank accounts of all types"],
+    "CUSTODIAL": ["Custody accounts", "Prime brokerage accounts", "Nominee accounts"],
+    "INVESTMENT_A": ["Fund units and limited partnership interests", "Equity and debt interests in managed funds"],
+    "INVESTMENT_B": ["Trust accounts", "Private trust company accounts", "Unregistered fund interests"],
+    "INSURANCE": ["Variable annuity and life insurance cash values"]
+  },
+  "due_diligence": {
+    "new_individual": {
+      "procedure": "Self-certification required at account opening. DITC provides standardised self-cert forms. Obtain: name, address, TIN(s), jurisdiction(s) of tax residence, date of birth.",
+      "timetable": "At account opening"
+    },
+    "pre_existing_individual_lower_value": {
+      "threshold": "USD 1,000,000 or below",
+      "procedure": "Residence address test. Electronic search for foreign indicia. Cayman FIs commonly use third-party due diligence providers."
+    },
+    "pre_existing_individual_high_value": {
+      "threshold": "Over USD 1,000,000",
+      "procedure": "Enhanced review including relationship manager certification and full electronic/paper search."
+    },
+    "new_entity": {
+      "procedure": "Self-certification for entity type. For investment funds, classify as Reporting FI or Passive NFFE. Identify controlling persons for Passive NFFEs (typically investors with >25% interest).",
+      "timetable": "At account opening"
+    },
+    "pre_existing_entity": {
+      "threshold": "USD 250,000",
+      "procedure": "Review registration documents, constitutional documents, AML due diligence files for entity classification."
+    }
+  },
+  "reportable_fields": {
+    "individual_account_holder": ["Full legal name", "Current address", "Jurisdiction(s) of tax residence", "TIN(s)", "Date of birth", "Place of birth if available"],
+    "entity_account_holder": ["Legal name", "Registered address", "Jurisdiction(s) of tax residence", "TIN(s)", "Entity type and classification"],
+    "controlling_person": ["Name", "Address", "Jurisdiction(s) of tax residence", "TIN(s)", "Date of birth", "Controlling person type code"],
+    "account": ["Account number or investor register reference", "DITC-registered FI identifier", "Balance/NAV as of 31 December", "Currency"],
+    "income_investment": ["Total distributions and income paid or credited during the year", "Redemption proceeds paid"],
+    "income_custodial": ["Gross dividends", "Gross interest", "Gross disposal proceeds"],
+    "income_depository": ["Gross interest paid or credited"],
+    "income_insurance": ["Cash surrender value", "Gross amounts paid"]
+  },
+  "derived_fields": [
+    "Reportability determination for each investor/account holder",
+    "Fund classification: Reporting FI vs Passive NFFE vs Exempt FI",
+    "Controlling person extraction from investor register or constitutional docs",
+    "NAV per unit/interest as of 31 December",
+    "USD equivalent for all non-USD denominated accounts",
+    "Undocumented investor flag and reason code",
+    "Aggregate interest linkage across related accounts within same FI group"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000",
+    "pre_existing_entity_review_trigger": "USD 250,000",
+    "new_accounts": "No threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "reporting_deadline": "31 July following the reporting year",
+    "notification_of_aeoi_obligation": "30 April (FIs must notify DITC of reporting obligation by this date)",
+    "new_account_due_diligence": "At account opening"
+  },
+  "penalties": {
+    "failure_to_register": "Administrative penalty under CRS Regulations",
+    "failure_to_report": "Penalty up to KYD 50,000 per violation",
+    "false_information": "Criminal offence under Cayman Tax Information Authority Law"
+  },
+  "local_notes": [
+    "Cayman is a major fund domicile - most Reporting FIs are investment funds or fund administrators",
+    "DITC Portal registration is mandatory for all Reporting FIs by 30 April each year",
+    "Third-party reporting is common: fund administrators typically file on behalf of funds",
+    "Cayman has no income tax so TIN concept is handled via registration number",
+    "For investment funds: controlling persons are typically investors with >25% interest in the fund",
+    "DITC issues updated guidance annually - always check for current guidance before filing",
+    "Nil returns are required if no reportable accounts exist"
+  ]
+}

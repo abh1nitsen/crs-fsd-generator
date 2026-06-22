@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.1",
+  "jurisdiction": "Netherlands",
+  "code": "NL",
+  "authority": "Dutch Tax and Customs Administration (Belastingdienst)",
+  "local_url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/business/other_subjects/common_reporting_standard/",
+  "oecd_url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/netherlands.htm",
+  "allowed_domains": [
+    "www.belastingdienst.nl",
+    "www.oecd.org"
+  ],
+  "source_health_model": "registered_official_sources_only",
+  "sources": [
+    {
+      "source_id": "NL_LOCAL_CRS_GUIDANCE",
+      "source_title": "Netherlands local CRS/FATCA guidance",
+      "authority": "Dutch Tax and Customs Administration (Belastingdienst)",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/business/other_subjects/common_reporting_standard/",
+      "allowed_domain": "www.belastingdienst.nl",
+      "source_type": "local_tax_authority_or_reporting_portal",
+      "facts_expected": [
+        "competent_authority",
+        "filing_deadline",
+        "submission_route",
+        "schema_or_technical_specification",
+        "nil_reporting",
+        "correction_process",
+        "tin_missing_treatment"
+      ],
+      "check_logic": "Use this registered local authority domain first. If the page is unavailable, changed or does not support a fact, create a verification task instead of inventing the fact.",
+      "evidence_status": "Verified",
+      "refresh_frequency": "weekly source availability checks; human review before fact updates",
+      "last_checked": "not_checked_in_runtime",
+      "last_verified": "2026-06-19",
+      "source_freshness": "Fresh",
+      "content_hash_status": "not captured in app runtime",
+      "user_message": "Registered official source. If unavailable or changed, create a verification task instead of inventing facts."
+    },
+    {
+      "source_id": "NL_OECD_CRS_PAGE",
+      "source_title": "OECD CRS jurisdiction page - Netherlands",
+      "authority": "OECD",
+      "url": "https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/crs-by-jurisdiction/crs-by-jurisdiction-2/netherlands.htm",
+      "allowed_domain": "www.oecd.org",
+      "source_type": "oecd_reference",
+      "facts_expected": [
+        "crs_participation_status",
+        "exchange_context",
+        "implementation_reference"
+      ],
+      "check_logic": "Use for CRS participation/context only. Do not use it alone for local filing deadlines, portal configuration or missing-TIN treatment.",
+      "evidence_status": "Verified",
+      "refresh_frequency": "weekly source availability checks; human review before fact updates",
+      "last_checked": "not_checked_in_runtime",
+      "last_verified": "2026-06-19",
+      "source_freshness": "Fresh",
+      "content_hash_status": "not captured in app runtime",
+      "user_message": "Registered official source. If unavailable or changed, create a verification task instead of inventing facts."
+    }
+  ],
+  "kb_refresh_mode": "curated_registry_no_runtime_fact_rewrite",
+  "refresh_frequency": "weekly source availability checks; human review before fact updates",
+  "last_checked": "not_checked_in_runtime",
+  "last_verified": "2026-06-19",
+  "source_freshness": "Fresh",
+  "user_message": "Generation uses curated KB facts and registered official sources. Re-check source applicability before production configuration.",
+  "technical_refresh_policy": {
+    "allowed_domains_only": true,
+    "runtime_generation_fetch_required": false,
+    "auto_rewrite_compliance_facts": false,
+    "on_source_changed": "flag for review and create/update verification tasks; do not silently rewrite filing facts",
+    "critical_facts_require_human_review": [
+      "filing_deadline",
+      "submission_route",
+      "schema_or_technical_specification",
+      "nil_reporting",
+      "tin_missing_treatment",
+      "self_certification_cure",
+      "correction_process",
+      "fatca_route"
+    ]
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "country": "Hong Kong",
+  "code": "HK",
+  "authority": "Inland Revenue Department (IRD)",
+  "authority_acronym": "IRD",
+  "legal_basis": "Inland Revenue (Amendment)(No.3) Ordinance 2016; Inland Revenue Ordinance (IRO) sections 58B to 58S; Inland Revenue (Amendment)(No.2) Ordinance 2019 (expanded to 126 reportable jurisdictions)",
+  "crs_status": "Committed and active - first exchange end of 2018. Amendment Bill 2026 gazzetted 27 March 2026 for legislative updates from 1 January 2027.",
+  "reporting_deadline": "31 May following the 31 December reporting year-end [INFERRED - verify with IRD annually; IRD may publish annual notice]",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "portal_name": "AEOI Portal (IRD)",
+  "portal_url": "https://www.ird.gov.hk/eng/tax/aeoi/portal.htm",
+  "submission_method": "IRD AEOI Portal; XML upload using IRD Financial Account Information Return XML Schema",
+  "xml_schema": "IRD Financial Account Information Return XML Schema (IRD-specific; based on OECD CRS XML v2.0 with HK adaptations); user guide published by IRD",
+  "nil_report_required": "Yes - nil return required if Reporting FI has no reportable accounts [INFERRED - verify with IRD]",
+  "data_retention_years": "7 years (standard Hong Kong IRD record retention requirement under IRO)",
+  "msg_ref_id_format": "HK + FI Business Registration Number (BRN) + year + sequence",
+  "doc_ref_id_format": "HK + year + FI BRN + unique account reference; per IRD XML User Guide",
+  "character_encoding": "UTF-8; Chinese characters should be romanised to Latin equivalents where possible",
+  "local_fi_scope": [
+    "Authorised institutions (banks, restricted licence banks, deposit-taking companies) under Banking Ordinance supervised by HKMA",
+    "Licensed corporations under Securities and Futures Ordinance (SFO) (custodians, asset managers)",
+    "Authorized insurers under Insurance Ordinance with investment-linked products",
+    "Collective investment schemes (funds) authorised by SFC or privately offered in HK",
+    "MPF trustees and ORSO scheme operators (specific rules apply - see below)"
+  ],
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Broad participation retirement fund accounts",
+    "Narrow participation retirement fund accounts",
+    "Exempt collective investment vehicles",
+    "Qualified credit card issuer accounts (where applicable)",
+    "MPF (Mandatory Provident Fund) accounts - specific AEOI treatment (IRD guidance: MPF schemes generally non-reporting but trustees must verify)",
+    "ORSO (Occupational Retirement Schemes) registered under ORSO - generally non-reporting if qualifying pension fund"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000 aggregate balance",
+    "pre_existing_entity_review_trigger": "USD 250,000 aggregate balance",
+    "new_accounts": "No financial threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "submission_deadline": "31 May [INFERRED]",
+    "amendment_bill_2026_effective": "1 January 2027 (legislative amendments from Inland Revenue (Amendment) (Automatic Exchange of Information) Bill 2026)"
+  },
+  "local_specific_rules": [
+    "AMENDMENT BILL 2026: The Inland Revenue (Amendment)(Automatic Exchange of Information) Bill 2026 was gazetted 27 March 2026 and had First Reading in LegCo 1 April 2026. Legislative changes take effect from 1 January 2027. FIs should monitor progress and plan for updated obligations.",
+    "MPF/ORSO: Mandatory Provident Fund (MPF) schemes and Occupational Retirement Schemes (ORSO) have specific AEOI treatment. IRD has issued separate guidance on MPF and ORSO scheme reporting. Trustees must review IRD's guidance document specifically for these scheme types.",
+    "MODEL 2 FATCA: Hong Kong is a FATCA Model 2 jurisdiction. HK FIs must register directly on the IRS FATCA registration portal and report US account information DIRECTLY to the IRS via IDES. IRD is NOT involved in FATCA data transmission.",
+    "IRD XML SCHEMA: Hong Kong uses the IRD Financial Account Information Return XML Schema, which is based on OECD CRS XML v2.0 but has Hong Kong-specific elements. FIs must obtain and validate against the IRD-published XSD, not the generic OECD XSD.",
+    "HKMA SUPERVISION: The Hong Kong Monetary Authority (HKMA) supervises authorised institutions (banks). SFC supervises securities FIs. Insurers supervised by Insurance Authority. Each regulator may separately inspect CRS compliance.",
+    "REPORTABLE JURISDICTIONS: HK reportable jurisdictions list expanded to 126+ via the Multilateral Convention (MAC) which came into force in HK on 1 September 2018. FIs must check the current IRD list annually.",
+    "CONTROLLING PERSON: HK follows OECD standard controlling person definition. For HK companies, 25% ownership threshold applies. For trusts: settlor, trustee, protector, beneficiaries, and other controlling persons all reportable.",
+    "CONTACT EMAILS: General AEOI queries to aeoi_gen@ird.gov.hk; XML schema and technical queries to aeoi_it@ird.gov.hk; Phone: (852) 2594 5401."
+  ],
+  "rejection_error_codes": [
+    {
+      "code": "IRD-AEOI-001",
+      "desc": "XML schema validation failure against IRD schema",
+      "resolution": "Validate against IRD-published XSD (not OECD standard XSD)"
+    },
+    {
+      "code": "IRD-AEOI-002",
+      "desc": "DocRefId already exists",
+      "resolution": "Use OECD2 DocTypeIndic with CorrDocRefId"
+    },
+    {
+      "code": "IRD-AEOI-003",
+      "desc": "Reporting FI BRN not registered for AEOI",
+      "resolution": "Register FI in IRD AEOI Portal before submission"
+    },
+    {
+      "code": "IRD-AEOI-004",
+      "desc": "Jurisdiction not on HK reportable jurisdiction list",
+      "resolution": "Check current IRD reportable jurisdiction list; account may not be reportable for that jurisdiction"
+    }
+  ],
+  "penalties": {
+    "failure_to_report": "IRO s.58R: fine up to HKD 100,000 plus HKD 500 per day of continuing failure",
+    "false_return": "IRO s.58S: fine up to HKD 100,000 and/or imprisonment up to 12 months",
+    "obstruction": "Fine up to HKD 10,000"
+  },
+  "contact": {
+    "email_general": "aeoi_gen@ird.gov.hk",
+    "email_technical": "aeoi_it@ird.gov.hk",
+    "phone": "(852) 2594 5401",
+    "website": "https://www.ird.gov.hk/eng/tax/dta_aeoi.htm"
+  },
+  "fatca": {
+    "iga_type": "Model 2 (HK FIs report directly to IRS)",
+    "iga_signed": "13 November 2014",
+    "iga_effective": "7 July 2015",
+    "portal": "IRS IDES (International Data Exchange Service) - direct submission by HK FIs",
+    "key_rules": [
+      "CRITICAL: Hong Kong is FATCA Model 2. HK FIs must register on IRS FATCA registration portal and obtain GIIN.",
+      "HK FIs report US account information DIRECTLY to the IRS via IDES. IRD is NOT involved in FATCA data.",
+      "US indicia: standard 7 indicia. HK banking secrecy laws have been waived for FATCA-consenting account holders.",
+      "Non-consenting US persons: HK FIs report aggregate number and balance of non-consenting accounts to IRD for onward transmission (IRD's limited role in Model 2).",
+      "FATCA registration and reporting are completely separate from CRS AEOI Portal workflow."
+    ]
+  },
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://www.ird.gov.hk/eng/tax/dta_aeoi.htm",
+        "fetched_at": "2026-06-19",
+        "notes": "IRD AEOI main page - fetched and verified. Amendment Bill 2026 noted."
+      }
+    ],
+    "last_updated": "2026-06-19",
+    "confidence": "Medium",
+    "gaps": [
+      "Reporting deadline (31 May) is INFERRED from standard HK practice; must be confirmed via IRD annual notice",
+      "IRD rejection error codes should be verified against IRD AEOI Portal technical guide",
+      "Amendment Bill 2026 final provisions should be confirmed after LegCo passage",
+      "MPF/ORSO specific treatment should be cross-checked against latest IRD MPF/ORSO guidance"
+    ]
+  }
+}

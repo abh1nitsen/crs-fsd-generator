@@ -1,0 +1,138 @@
+{
+  "country": "United Kingdom",
+  "code": "GB",
+  "authority": "HM Revenue and Customs (HMRC)",
+  "authority_acronym": "HMRC",
+  "legal_basis": "Finance Act 2013 Schedule 36; International Tax Compliance Regulations 2015 (SI 2015/878) as amended",
+  "crs_status": "Committed and active - first exchange 2017 (early adopter)",
+  "reporting_deadline": "31 May following the 31 December reporting year-end",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "portal_name": "HMRC AEOI Online Service",
+  "portal_url": "https://www.gov.uk/guidance/how-to-report-automatic-exchange-of-information",
+  "submission_method": "HMRC AEOI online service via Government Gateway; XML upload",
+  "xml_schema": "Combined CRS+FATCA XML schema (HMRC format) until 31 December 2026; from 1 January 2027: OECD CRS XML v3.0 (OECD October 2024) for CRS + IRS FATCA XML for FATCA",
+  "nil_report_required": "Not required unless FI has made a threshold election for de minimis",
+  "data_retention_years": "6 years from end of the reporting period",
+  "msg_ref_id_format": "FI TIN + Year + Sequence - HMRC specifies format in AEOI technical guidance",
+  "doc_ref_id_format": "Must be globally unique per account per FI; HMRC recommends: [CountryCode][FI_TIN][Year][AccountRef]",
+  "character_encoding": "ISO-8859-1 (Latin characters only; extended Unicode characters must be transliterated)",
+  "local_fi_scope": [
+    "UK-resident banks, building societies, credit unions",
+    "UK-resident custodians and investment managers",
+    "UK-resident life insurance companies with investment-linked products",
+    "UK-resident collective investment vehicles (OEICs, unit trusts, etc.)",
+    "Foreign branches of non-UK entities resident in UK for CRS purposes"
+  ],
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Broad participation retirement fund accounts",
+    "Narrow participation retirement fund accounts",
+    "Exempt collective investment vehicles",
+    "Qualified credit card issuer accounts (where applicable)",
+    "Individual Savings Accounts (ISAs) - exempt as low-risk",
+    "Dormant accounts: accounts with no activity for 3+ years and no communication for 6+ years (FI may elect not to review, but must report if identified as reportable)"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000 aggregate balance",
+    "pre_existing_entity_review_trigger": "USD 250,000 aggregate balance",
+    "new_accounts": "No financial threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "submission_deadline": "31 May",
+    "schema_change_date": "1 January 2027 - switch to separate OECD CRS XML v3.0 and IRS FATCA XML"
+  },
+  "local_specific_rules": [
+    "SCHEMA TRANSITION: Until 31 December 2026, HMRC accepts a single combined XML file covering both CRS and FATCA obligations. From 1 January 2027, these must be filed separately: OECD CRS XML Schema v3.0 (published October 2024) for CRS, and IRS FATCA XML for FATCA.",
+    "DORMANT ACCOUNT ELECTION: FI may elect dormant account treatment if account has had no transactions for 3+ calendar years AND no communication with account holder for 6+ calendar years. Once dormant, FI does not need to actively review, but must report if account holder is later identified as reportable.",
+    "UNDOCUMENTED ACCOUNTS: If FI holds only a hold-mail or in-care-of address for an account holder with no other address on file, HMRC guidance requires the account to be treated as UK resident and reported as such.",
+    "CHARACTER SET: Only ISO-8859-1 characters are accepted. Names with diacritics, Arabic, Chinese, or other non-Latin characters must be transliterated to Latin equivalents.",
+    "NIL REPORTING: UK does not require nil reports for CRS. However, if FI has previously reported and now has zero reportable accounts, HMRC recommends confirming this via the portal.",
+    "CLASSIFICATION OF PENSIONS: Most UK regulated pension schemes are Non-Reporting FIs under HMRC guidance. FIs managing pension assets must verify the pension fund's classification before applying CRS.",
+    "THRESHOLD ELECTION: UK allows FI to elect to apply a USD 50,000 de minimis threshold for pre-existing individual accounts. Once elected, accounts below threshold need not be reviewed.",
+    "GOVERNMENT GATEWAY: Mandatory for all AEOI submissions. Each Reporting FI must have its own Government Gateway credential linked to its UTR or company registration."
+  ],
+  "rejection_error_codes": [
+    {
+      "code": "HMRC-CRS-001",
+      "desc": "DocRefId already submitted",
+      "resolution": "Check submission history; use OECD2 with CorrDocRefId to amend"
+    },
+    {
+      "code": "HMRC-CRS-002",
+      "desc": "CorrDocRefId not found in HMRC systems",
+      "resolution": "Verify original was accepted; resubmit original as OECD1 if not found"
+    },
+    {
+      "code": "HMRC-CRS-003",
+      "desc": "Schema validation error - mandatory element missing",
+      "resolution": "Validate XML against published XSD before submission"
+    },
+    {
+      "code": "HMRC-CRS-004",
+      "desc": "Invalid country code in ResCountryCode",
+      "resolution": "Use ISO 3166-1 alpha-2; verify against HMRC list of participating jurisdictions"
+    },
+    {
+      "code": "HMRC-CRS-005",
+      "desc": "Reporting FI TIN (UTR) not recognised",
+      "resolution": "Verify FI is registered with HMRC for AEOI and UTR matches registration"
+    },
+    {
+      "code": "HMRC-CRS-006",
+      "desc": "TIN format invalid",
+      "resolution": "Include TIN type indicator and validate against OECD TIN issuance rules"
+    },
+    {
+      "code": "HMRC-CRS-007",
+      "desc": "File too large for single submission",
+      "resolution": "Split into multiple files, each with unique MessageRefId"
+    }
+  ],
+  "penalties": {
+    "failure_to_register": "GBP 300 fixed penalty under SI 2015/878",
+    "failure_to_report": "Up to GBP 3,000 per year of non-compliance; daily penalties possible",
+    "inaccurate_return": "GBP 300 per inaccuracy for careless errors; higher for deliberate",
+    "failure_to_comply_with_notice": "GBP 300 + up to GBP 60 per day"
+  },
+  "contact": {
+    "email": "aeoi.enquiries@hmrc.gov.uk",
+    "website": "https://www.gov.uk/guidance/how-to-report-automatic-exchange-of-information",
+    "technical_guidance": "https://www.gov.uk/government/publications/common-reporting-standard-technical-guidance"
+  },
+  "fatca": {
+    "iga_type": "Model 1A",
+    "iga_signed": "12 September 2012",
+    "iga_effective": "1 July 2013",
+    "portal": "Same HMRC AEOI Online Service until Dec 2026; IRS IDES from Jan 2027 for FATCA-specific filing",
+    "key_rules": [
+      "UK Model 1A: UK FIs report FATCA data to HMRC, which passes to IRS. FIs do NOT register on IRS FATCA portal as FFIs.",
+      "US indicia: 7 standard indicia apply. Enhanced review required for high-value accounts.",
+      "Combined filing until 31 December 2026: single XML covers CRS + FATCA obligations.",
+      "From 1 January 2027: FATCA filed separately using IRS schema; CRS filed using OECD v3.0."
+    ]
+  },
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://www.gov.uk/guidance/how-to-report-automatic-exchange-of-information",
+        "fetched_at": "2026-06-19",
+        "notes": "HMRC AEOI main guidance page - fetched and verified"
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/common-reporting-standard-technical-guidance",
+        "fetched_at": "2026-06-19",
+        "notes": "HMRC CRS Technical Guidance"
+      }
+    ],
+    "last_updated": "2026-06-19",
+    "confidence": "High",
+    "gaps": [
+      "HMRC rejection error codes use internal naming; should be cross-checked against latest HMRC AEOI technical specs",
+      "Penalty amounts should be verified against Finance Act amendments post-2024"
+    ]
+  }
+}

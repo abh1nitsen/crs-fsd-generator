@@ -1,0 +1,84 @@
+{
+  "country": "Sweden",
+  "code": "SE",
+  "authority": "Refer to OECD CRS jurisdiction page for competent authority details",
+  "crs_status": "Committed jurisdiction - active CRS reporting",
+  "reporting_deadline": "Typically 30 June or 31 July following the reporting calendar year - verify with local authority",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "submission_method": "Local tax authority portal, OECD CRS XML Schema v2.0",
+  "xml_schema": "OECD CRS XML Schema v2.0",
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Regulated pension fund accounts",
+    "Exempt collective investment vehicles",
+    "Dormant accounts below de minimis"
+  ],
+  "reportable_account_types_by_fi": {
+    "DEPOSITORY": ["Deposit accounts of all types"],
+    "CUSTODIAL": ["Custody and brokerage accounts"],
+    "INVESTMENT_A": ["Fund units and equity interests"],
+    "INVESTMENT_B": ["Trust interests and private structure accounts"],
+    "INSURANCE": ["Cash value insurance and annuity contracts"]
+  },
+  "due_diligence": {
+    "new_individual": {
+      "procedure": "Self-certification at account opening: name, address, TIN(s), jurisdiction(s) of tax residence, date of birth.",
+      "timetable": "At or before account opening"
+    },
+    "pre_existing_individual_lower_value": {
+      "threshold": "Aggregate balance USD 1,000,000 or below",
+      "procedure": "Residence address test using documentary evidence on file. Electronic search for indicia."
+    },
+    "pre_existing_individual_high_value": {
+      "threshold": "Over USD 1,000,000 aggregate balance",
+      "procedure": "Enhanced review: full electronic and paper file search, relationship manager inquiry."
+    },
+    "new_entity": {
+      "procedure": "Self-certification for entity classification and controlling persons for Passive NFFEs.",
+      "timetable": "At account opening"
+    },
+    "pre_existing_entity": {
+      "threshold": "USD 250,000 aggregate balance triggers review",
+      "procedure": "Classify entity using existing AML/KYC documentation."
+    }
+  },
+  "reportable_fields": {
+    "individual_account_holder": ["Legal name", "Address", "Jurisdiction(s) of tax residence", "TIN(s)", "Date of birth"],
+    "entity_account_holder": ["Legal name", "Registered address", "Jurisdiction(s) of tax residence", "TIN(s)", "Entity classification"],
+    "controlling_person": ["Name", "Address", "Jurisdiction(s) of tax residence", "TIN(s)", "Date of birth"],
+    "account": ["Account number", "Reporting FI identifier", "Balance or value at year end", "Account currency"],
+    "income_depository": ["Gross interest paid or credited"],
+    "income_custodial": ["Gross dividends", "Gross interest", "Gross proceeds from asset disposals"],
+    "income_investment": ["Total gross amounts paid or credited"],
+    "income_insurance": ["Cash surrender value or amount paid out"]
+  },
+  "derived_fields": [
+    "Reportability determination: Reportable / Non-Reportable / Undocumented",
+    "Entity classification: Active NFFE, Passive NFFE, Reporting FI, Non-Reporting FI",
+    "Controlling person identification and TIN linkage",
+    "USD equivalent for threshold testing",
+    "Aggregate balance across related accounts",
+    "Undocumented account flag and reason code",
+    "Change of circumstances re-certification trigger"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "USD 1,000,000",
+    "pre_existing_entity_review_trigger": "USD 250,000",
+    "new_accounts": "No financial threshold - all new accounts reviewed"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "reporting_deadline": "Verify with local competent authority - typically mid-year following reporting year",
+    "new_account_due_diligence": "At account opening"
+  },
+  "penalties": {
+    "general": "Penalties for non-compliance vary by jurisdiction. Consult local authority guidance."
+  },
+  "local_notes": [
+    "Follows OECD CRS standard. Refer to local competent authority guidance for jurisdiction-specific adaptations.",
+    "Use the Fetch Latest Guidance option for the most current local rules.",
+    "Verify reporting deadlines annually as these can be extended by local authority notice."
+  ]
+}

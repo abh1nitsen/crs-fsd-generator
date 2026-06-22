@@ -1,0 +1,131 @@
+{
+  "country": "Singapore",
+  "code": "SG",
+  "authority": "Inland Revenue Authority of Singapore (IRAS)",
+  "authority_acronym": "IRAS",
+  "legal_basis": "Income Tax Act (ITA) 1947, Part XXB (inserted by Income Tax (Amendment) Act 2016); International Tax Compliance Regulations 2016 (G.N. No. S 393/2016) as amended",
+  "crs_status": "Committed and active - first exchange 2018",
+  "reporting_deadline": "31 May following the 31 December reporting year-end",
+  "account_snapshot_date": "31 December",
+  "reporting_period": "Calendar year 1 January to 31 December",
+  "portal_name": "myTax Portal (IRAS)",
+  "portal_url": "https://mytax.iras.gov.sg",
+  "submission_method": "myTax Portal; XML upload (OECD CRS XML); also PDF form for very small reporters",
+  "xml_schema": "OECD CRS XML Schema v2.0",
+  "nil_report_required": "No - nil CRS return not required if no reportable accounts",
+  "data_retention_years": "5 years from date of collection of information",
+  "msg_ref_id_format": "SG + FI UEN (Unique Entity Number) + reporting year + sequence number",
+  "doc_ref_id_format": "SG + reporting year + FI UEN + unique account identifier",
+  "character_encoding": "UTF-8",
+  "local_fi_scope": [
+    "MAS-licensed banks (full banks, wholesale banks, merchant banks)",
+    "Finance companies",
+    "Holders of Capital Markets Services (CMS) licence under Securities and Futures Act (custodial services)",
+    "Licensed insurers offering investment-linked products (ILPs)",
+    "Collective investment schemes (CIS) constituted in Singapore: authorised and recognised schemes",
+    "Singapore branches of foreign FIs"
+  ],
+  "excluded_accounts": [
+    "Governmental entity accounts",
+    "International organisation accounts",
+    "Central bank accounts",
+    "Broad participation retirement fund accounts",
+    "Narrow participation retirement fund accounts",
+    "Exempt collective investment vehicles",
+    "Qualified credit card issuer accounts (where applicable)",
+    "Supplementary Retirement Scheme (SRS) accounts - classified as Non-Reporting FI or excluded account (verify with IRAS)",
+    "CPF (Central Provident Fund) accounts - governmental scheme, excluded"
+  ],
+  "thresholds": {
+    "pre_existing_individual_high_value": "SGD 1,000,000 aggregate balance (Singapore uses SGD equivalent)",
+    "pre_existing_entity_review_trigger": "SGD 250,000 aggregate balance (SGD equivalent)",
+    "new_accounts": "No financial threshold"
+  },
+  "key_dates": {
+    "account_balance_snapshot": "31 December",
+    "submission_deadline": "31 May",
+    "new_account_dd": "At or before account opening"
+  },
+  "local_specific_rules": [
+    "SGD THRESHOLDS: Singapore converts the OECD USD thresholds to SGD using MAS prevailing rates. FIs should use the prevailing SGD/USD rate on 31 December for threshold testing.",
+    "CARF: Singapore is implementing the OECD Crypto-Asset Reporting Framework (CARF). IRAS has a dedicated CARF section. FIs with crypto-asset exposure should monitor CARF implementation timeline.",
+    "MAS REGULATORY OVERLAP: MAS (Monetary Authority of Singapore) supervises Singapore FIs from a prudential/conduct perspective. CRS compliance is primarily supervised by IRAS, but MAS may inspect CRS procedures as part of AML/CFT framework reviews.",
+    "UEN FORMAT: Singapore's Unique Entity Number (UEN) is used as the FI identifier. Format: XXXXXXXX[C] where X is digit and C is check character. Must use registered UEN exactly.",
+    "SRS ACCOUNTS: Supplementary Retirement Scheme accounts may be classified as Non-Reporting FI accounts under certain conditions. Verify current IRAS position for each account type.",
+    "CPF EXCLUSION: Central Provident Fund accounts are excluded from CRS as a governmental scheme. However, private pension products offered by licensed insurers are in scope.",
+    "MUTUAL RECOGNITION: Singapore FIs operating in jurisdictions with Singapore DTAs may rely on self-certs obtained for DTA purposes if they contain equivalent information.",
+    "IRAS E-LEARNING: IRAS provides free online CRS training modules via myTax Portal. Compliance teams should complete these annually.",
+    "PDF OPTION: Very small FIs (fewer than 10 reportable accounts) may use IRAS PDF submission form instead of XML. XML is strongly preferred for scalability."
+  ],
+  "rejection_error_codes": [
+    {
+      "code": "IRAS-CRS-E001",
+      "desc": "UEN not registered for CRS reporting",
+      "resolution": "Register FI on myTax Portal before first submission"
+    },
+    {
+      "code": "IRAS-CRS-E002",
+      "desc": "DocRefId already exists",
+      "resolution": "Check previous submissions; use OECD2 to amend"
+    },
+    {
+      "code": "IRAS-CRS-E003",
+      "desc": "XML schema validation error",
+      "resolution": "Validate against OECD CRS XSD and IRAS technical guide"
+    },
+    {
+      "code": "IRAS-CRS-E004",
+      "desc": "Invalid ReportingPeriod",
+      "resolution": "Must match the calendar year for which FI is registered"
+    },
+    {
+      "code": "IRAS-CRS-E005",
+      "desc": "Account balance currency not ISO 4217",
+      "resolution": "Use 3-letter ISO currency code"
+    }
+  ],
+  "penalties": {
+    "failure_to_report": "Under Income Tax Act s.105N: fine up to SGD 10,000 per failure",
+    "obstruction_of_IRAS": "Fine up to SGD 10,000 and/or imprisonment up to 12 months",
+    "failure_to_maintain_records": "Fine up to SGD 5,000",
+    "false_statement": "Fine up to SGD 10,000 and/or imprisonment"
+  },
+  "contact": {
+    "email": "Via myTax Portal query system",
+    "website": "https://www.iras.gov.sg/taxes/international-tax/common-reporting-standard-(crs)",
+    "phone": "1800 356 8300 (IRAS general)"
+  },
+  "fatca": {
+    "iga_type": "Model 1A",
+    "iga_signed": "9 December 2014",
+    "iga_effective": "18 March 2015",
+    "portal": "myTax Portal (same as CRS; separate FATCA filing section)",
+    "key_rules": [
+      "Singapore Model 1A: Singapore FIs report FATCA data to IRAS, which passes to IRS.",
+      "Singapore FIs do not register as FFIs on IRS portal; covered by IGA.",
+      "US indicia: standard 7 indicia apply. SGD thresholds same as CRS.",
+      "FATCA filing deadline same as CRS: 31 May."
+    ]
+  },
+  "_meta": {
+    "sources": [
+      {
+        "url": "https://www.iras.gov.sg/taxes/international-tax/common-reporting-standard-(crs)/crs-overview-and-latest-developments",
+        "fetched_at": "2026-06-19",
+        "notes": "IRAS CRS overview page - fetched (very large page)"
+      },
+      {
+        "url": "https://www.iras.gov.sg/taxes/international-tax/common-reporting-standard-(crs)/crs-filing",
+        "fetched_at": "2026-06-19",
+        "notes": "IRAS CRS filing page - fetched, deadline confirmed as 31 May from metadata"
+      }
+    ],
+    "last_updated": "2026-06-19",
+    "confidence": "High",
+    "gaps": [
+      "IRAS rejection error codes should be verified against current myTax Portal technical documentation",
+      "CARF implementation date should be confirmed when IRAS announces final timeline",
+      "SGD/USD conversion rate guidance should be checked annually"
+    ]
+  }
+}
